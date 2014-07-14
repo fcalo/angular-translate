@@ -15,106 +15,181 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="wwwApp">
+  <body ng-app="wwwApp" ng-controller="MuskcoCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     
-    <div id="navbar" class="navbar navbar-default" role="navigation">
-		<div class="container" >
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  <a class="navbar-brand" href="/"><img src="images/logo.png"></a>
-			</div>
-			
-<!--
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="#" data-toggle="modal" data-target="#contact-modal"><span class="glyphicon glyphicon-envelope"></span> Contacto</a></li>
-			  </ul>
-			</div>
--->
-
-			 <!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse">
-			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Quiénes somos</a></li>
-				<li><a href="#">Productos</a></li>
-				<li><a href="#">Sorteos</a></li>
-				<li><a href="#">Contacto</a></li>
-				</li>
-			  </ul>
-			  
+    
+	 <div id="header" class="container " >
+		 <div class="brand"><a  href="/"><img src="images/logo.png"></a></div>
+		 <div class="collapse navbar-collapse">
 				<div class="nav-buttons">
-					<button type="button" class="btn btn-info navbar-btn">Registrate</button>
-					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn">Iniciar Sesión</button>
+					<button type="button" class="btn btn-warning navbar-btn">{{ 'SELL' | translate }}</button>
+					<button type="button" class="btn btn-info navbar-btn">{{ 'SIGN_UP' | translate }}</button>
+					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn">{{ "SIGN_IN" | translate }}</button>
 				</div>
-			
+				
 				<ul class="nav navbar-nav navbar-right">
+					
 					<li class="divider"></li>
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> Idioma <span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> <span id="language-label"> Idioma : ES </span><span class="caret"></span></a>
 					  <ul id="language-selector" class="dropdown-menu" role="menu" >
-						<li><a href="#"><span class="glyphicon glyphicon-ok"></span> ES</a></li>
+						<li><a href="#" ng-click="changeLanguage('es')" ><span class="glyphicon glyphicon-ok"></span> ES</a></li>
 						<li class="divider"></li>
-						<li><a href="#">EN</a></li>
-						<li><a href="#">FR</a></li>
-						<li><a href="#">DE</a></li>
-						<li><a href="#">IT</a></li>
+						<li><a href="#" ng-click="changeLanguage('en')" >EN</a></li>
+						<li><a href="#" ng-click="changeLanguage('fr')" >FR</a></li>
+						<li><a href="#" ng-click="changeLanguage('de')" >DE</a></li>
+						<li><a href="#" ng-click="changeLanguage('it')" >IT</a></li>
 						
 					  </ul>
 					<li class="divider"></li>
 					</li>
 				  </ul>
-			</div><!-- /.navbar-collapse -->
-		</div>
+				 <form class="navbar-form navbar-right" role="search">
+					<div class="form-group">
+						<div class="input-group">
+						  <input type="text" class="form-control" placeholder="Search">
+						  <span class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						  </span>
+						</div>
+					</div>
+				  </form>
+				
+			</div>
+		   
+			  
 	 </div>
+	 <div id="menu" class="container">
+		 <ul class="nav navbar-nav">
+			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li><a href="#">Quiénes somos</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Categorias <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu" >
+					
+				   <li class="dropdown-submenu">
+					  <a href="#">Electrónica</a>
+					  <ul class="dropdown-menu">
+						<li><a href="#">Móviles</a></li>
+							<li><a href="#">Tablets</a></li>
+							<li><a href="#">Portátiles</a></li>
+							<li><a href="#">Ordenadores de sobremesa</a></li>
+							<li><a href="#">Cámaras Fotográficas</a></li>
+							<li><a href="#">Consolas</a></li>
+							<li><a href="#">Consolas mini</a></li>
+					  </ul>
+				    </li>
+					<li class="dropdown-submenu"><a href="#">Electrodomésticos</a>
+					  <ul class="dropdown-menu">
+						  <li><a href="#">Televisores</a></li>
+						  <li><a href="#">Blu-Ray</a></li>
+					  </ul>
+					</li>
+					<li class="dropdown-submenu"><a href="#">Moda</a>
+					  <ul class="dropdown-menu">
+						  <li><a href="#">Zapatos</a></li>
+						  <li><a href="#">Deportivas</a></li>
+					  </ul>
+					</li>
+					<li class="dropdown-submenu"><a href="#">Viajes</a>
+					  <ul class="dropdown-menu">
+						  <li><a href="#">Paquete Fin de Semana</a></li>
+						  <li><a href="#">Paquete 5 días</a></li>
+						  <li><a href="#">Paquete 10 días</a></li>
+					  </ul>
+					</li>
+					<li class="dropdown-submenu"><a href="#">Vehículos</a>
+					  <ul class="dropdown-menu">
+						  <li><a href="#">Motos</a></li>
+							<li><a href="#">Bicicletas</a></li>
+					  </ul>
+					</li>
+					<li><a href="#">Entradas</a></li>
+					<li class="dropdown-submenu"><a href="#">Complementos</a>
+					  <ul class="dropdown-menu">
+						  <li><a href="#">Bolsos</a></li>
+							<li><a href="#">Perfumes</a></li>
+							<li><a href="#">Relojes</a></li>
+							<li><a href="#">Joyas</a></li>
+					  </ul>
+					</li>
+					
+				</ul>
+			</li>
+			<li><a href="#">Sorteos</a></li>
+			<li><a href="#">Contacto</a></li>
+			</li>
+		  </ul>
+	 </div>
+	 
     
-    <div class="container">
+    <div class="container main">
       
       <div id='main-container' class="row">
-		<div id="sidebar" class="col-md-2">
-			<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorias</div>
-			<ul class="nav nav-list">
-				<li><a href="#">category 1</a></li>
-				<li><a href="#">category 2</a>
-					<ul class="nav nav-list">
-						<li><a href="#">category 2 1</a></li>
-						<li><a href="#">category 2 2</a></li>
-						<li><a href="#">category 2 3</a></li>
-						<li><a href="#">category 2 4</a></li>
-						<li><a href="#">category 2 5</a></li>
-					</ul>
-				</li>
-				<li><a href="#">category 3</a></li>
-				<li><a href="#">category 4</a></li>
-				<li><a href="#">category 5</a>
-					<ul class="nav nav-list">
-						<li><a href="#">category 5 1</a></li>
-						<li><a href="#">category 5 2</a></li>
-						<li><a href="#">category 5 3</a></li>
-					</ul>
-				</li>
-				<li><a href="#">category 6</a></li>
-				<li><a href="#">category 7</a></li>
-			</ul>
-			
+		<div id="sidebar" class="hidden-sx hidden-sm col-md-3">
+			<div class="module">
+				<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorias</div>
+				<ul class="nav nav-list parent">
+					<li><label class="tree-toggler nav-header">Electrónica</label>
+						<ul class="nav nav-list tree">
+							<li><a href="#">Móviles</a></li>
+							<li><a href="#">Tablets</a></li>
+							<li><a href="#">Portátiles</a></li>
+							<li><a href="#">Ordenadores de sobremesa</a></li>
+							<li><a href="#">Cámaras Fotográficas</a></li>
+							<li><a href="#">Consolas</a></li>
+							<li><a href="#">Consolas mini</a></li>
+						</ul>
+					</li>
+					<li><label class="tree-toggler nav-header">Electrodomésticos</label>
+						<ul class="nav nav-list tree">
+							<li><a href="#">Televisores</a></li>
+							<li><a href="#">Blu-Ray</a></li>
+						</ul>
+					</li>
+					<li><label class="tree-toggler nav-header">Moda</label>
+						<ul class="nav nav-list tree">
+							<li><a href="#">Zapatos</a></li>
+							<li><a href="#">Deportivas</a></li>
+						</ul>
+					</li>
+					<li><label class="tree-toggler nav-header">Viajes</label>
+						<ul class="nav nav-list tree">
+							<li><a href="#">Paquete Fin de Semana</a></li>
+							<li><a href="#">Paquete 5 días</a></li>
+							<li><a href="#">Paquete 10 días</a></li>
+						</ul>
+					</li>
+					<li><label class="tree-toggler nav-header">Vehículos</label>
+						<ul class="nav nav-list tree">
+							<li><a href="#">Motos</a></li>
+							<li><a href="#">Bicicletas</a></li>
+						</ul>
+					</li>
+					<li><label class="tree-toggler nav-header">Entradas</label></li>
+					<li><label class="tree-toggler nav-header">Complementos</label>
+						<ul class="nav nav-list tree">
+							<li><a href="#">Bolsos</a></li>
+							<li><a href="#">Perfumes</a></li>
+							<li><a href="#">Relojes</a></li>
+							<li><a href="#">Joyas</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</div>
-		<div id="main-content" class="col-md-10">
+		<div id="main-content" class="col-sm-12 col-md-9">
 			<div ng-view=""></div>
 		</div>
       </div>	
     </div>  
 
-  <div id="footer" class="footer">
+  <div id="footer" class="footer container">
 	<ul class="list-inline">
 		<li><a href="#">Terminos y condiciones</a></li>
 		<li>|</li>
@@ -125,7 +200,6 @@
 		<li><a href="#" class="btn-social btn-outline"><i class="fa fa-google-plus"></i></a></li>
 	</ul>
   </div>
-    
     
     
     
@@ -161,7 +235,7 @@
                 </fieldset>
               </form>
               <button type="button" class="btn btn-link" id="btn_reset">¿Has olvidado la contraseña?</button>
-              <button type="button" class="btn btn-link" id="btn_reset">Soy vendedor</button>
+              <button type="button" class="btn btn-link" id="btn_reset">Regístrate</button>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -211,11 +285,16 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/muskco.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->

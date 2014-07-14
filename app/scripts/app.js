@@ -15,9 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'pascalprecht.translate'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $translateProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -30,4 +31,13 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+      
+    $translateProvider.useStaticFilesLoader({
+	  prefix: '/languages/',
+	  suffix: '.json'
+	});
+    
+	$translateProvider.preferredLanguage('es');
+	
+});
+
