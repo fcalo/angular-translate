@@ -23,18 +23,15 @@
     <!-- Add your site or application content here -->
     
     
-	 <div id="header" class="container " >
-		 <div class="brand"><a  href="/"><img src="images/logo.png"></a></div>
-		 <div class="collapse navbar-collapse">
-				<div class="nav-buttons">
-					<button type="button" class="btn btn-warning navbar-btn">{{ 'SELL' | translate }}</button>
-					<button type="button" class="btn btn-info navbar-btn">{{ 'SIGN_UP' | translate }}</button>
-					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn">{{ "SIGN_IN" | translate }}</button>
-				</div>
-				
-				<ul class="nav navbar-nav navbar-right">
+	 <div id="header" class="container" >
+		 <div class="row">
+			 <div class="col-xs-6 col-sm-5 col-md-4 col-lg-4 brand">
+				<a  href="/"><img src="images/logo.png"></a>
+				<span>Frase con gancho</span>
+			 </div>
+			 <div class="hidden-xs hidden-sm col-md-4 col-lg-5">
+				 <ul class="nav navbar-nav navbar-right">
 					
-					<li class="divider"></li>
 					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> <span id="language-label"> Idioma : ES </span><span class="caret"></span></a>
 					  <ul id="language-selector" class="dropdown-menu" role="menu" >
@@ -49,7 +46,8 @@
 					<li class="divider"></li>
 					</li>
 				  </ul>
-				 <form class="navbar-form navbar-right" role="search">
+				
+				 <form class="hidden-xs hidden-sm  navbar-form navbar-right" role="search">
 					<div class="form-group">
 						<div class="input-group">
 						  <input type="text" class="form-control" placeholder="Search">
@@ -61,9 +59,49 @@
 				  </form>
 				
 			</div>
-		   
-			  
-	 </div>
+			<div class="col-xs-6 col-sm-7 col-md-4 col-lg-3 right">  
+				<ul class="hidden-md hidden-lg nav navbar-nav">
+					
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> <span id="language-label"> Idioma : ES </span><span class="caret"></span></a>
+					  <ul id="language-selector" class="dropdown-menu" role="menu" >
+						<li><a href="#" ng-click="changeLanguage('es')" ><span class="glyphicon glyphicon-ok"></span> ES</a></li>
+						<li class="divider"></li>
+						<li><a href="#" ng-click="changeLanguage('en')" >EN</a></li>
+						<li><a href="#" ng-click="changeLanguage('fr')" >FR</a></li>
+						<li><a href="#" ng-click="changeLanguage('de')" >DE</a></li>
+						<li><a href="#" ng-click="changeLanguage('it')" >IT</a></li>
+						
+					  </ul>
+					<li class="divider"></li>
+					</li>
+				  </ul>
+				<div id="user-area">
+					<button type="button" class="btn btn-info navbar-btn translate">{{ 'SIGN_UP' | translate }}</button>
+					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn translate">{{ "SIGN_IN" | translate }}</button>
+				</div>
+				<button type="button" class="btn btn-warning navbar-btn">Vende tu producto</button>
+			</div>	  
+		</div>
+	</div>
+	
+	<div id="little-search" class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 hidden-md hidden-lg little-search-col">
+				<form class="navbar-form navbar-right" role="search">
+					<div class="form-group">
+						<div class="input-group">
+						  <input type="text" class="form-control" placeholder="Search">
+						  <span class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+						  </span>
+						</div>
+					</div>
+				  </form>
+			</div>
+		</div>
+	</div>
+				
 	 <div id="menu" class="container">
 		 <ul class="nav navbar-nav">
 			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -131,7 +169,7 @@
     <div class="container main">
       
       <div id='main-container' class="row">
-		<div id="sidebar" class="hidden-sx hidden-sm col-md-3">
+		<div id="sidebar" class="hidden-xs hidden-sm col-md-3">
 			<div class="module">
 				<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorias</div>
 				<ul class="nav nav-list parent">

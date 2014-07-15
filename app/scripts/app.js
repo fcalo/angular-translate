@@ -39,5 +39,6 @@ angular
     
 	$translateProvider.preferredLanguage('es');
 	
+	
 });
 
