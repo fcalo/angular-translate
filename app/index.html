@@ -27,7 +27,7 @@
 		 <div class="row">
 			 <div class="col-xs-6 col-sm-5 col-md-4 col-lg-4 brand">
 				<a  href="/"><img src="images/logo.png"></a>
-				<span>Frase con gancho</span>
+				<span>La web donde sorteas tus productos y consigues mucho más!</span>
 			 </div>
 			 <div class="hidden-xs hidden-sm col-md-4 col-lg-5">
 				 <ul class="nav navbar-nav navbar-right">
@@ -40,7 +40,7 @@
 						<li><a href="#" ng-click="changeLanguage('en')" >EN</a></li>
 						<li><a href="#" ng-click="changeLanguage('fr')" >FR</a></li>
 						<li><a href="#" ng-click="changeLanguage('de')" >DE</a></li>
-						<li><a href="#" ng-click="changeLanguage('it')" >IT</a></li>
+						<li><a href="#" ng-click="changeLanguage('pt')" >PT</a></li>
 						
 					  </ul>
 					<li class="divider"></li>
@@ -104,9 +104,9 @@
 				
 	 <div id="menu" class="container">
 		 <ul class="nav navbar-nav">
-			<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-			<li><a href="#">Quiénes somos</a></li>
-			<li class="dropdown">
+			<li class="master"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li class="master"><a href="#">Quiénes somos</a></li>
+			<li class="dropdown master">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Categorias <span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu" >
 					
@@ -159,8 +159,8 @@
 					
 				</ul>
 			</li>
-			<li><a href="#">Sorteos</a></li>
-			<li><a href="#">Contacto</a></li>
+			<li class="master"><a href="#">Sorteos</a></li>
+			<li class="master"><a href="#">Contacto</a></li>
 			</li>
 		  </ul>
 	 </div>
@@ -169,7 +169,7 @@
     <div class="container main">
       
       <div id='main-container' class="row">
-		<div id="sidebar" class="hidden-xs hidden-sm col-md-3">
+		<div id="sidebar" class="hidden-xs hidden-sm col-md-2">
 			<div class="module">
 				<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorias</div>
 				<ul class="nav nav-list parent">
@@ -221,7 +221,7 @@
 				</ul>
 			</div>
 		</div>
-		<div id="main-content" class="col-sm-12 col-md-9">
+		<div id="main-content" class="col-sm-12 col-md-10">
 			<div ng-view=""></div>
 		</div>
       </div>	

@@ -16,6 +16,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 $hover-primary: #345478;
 
 
+
 .container{
 	border-left:1px solid $gray-light;
 	border-right:1px solid $gray-light;
@@ -33,7 +34,8 @@ $hover-primary: #345478;
 	.brand{
 		float:left;
 		span{
-			font-size: 1.6em;
+			font-size: 1.3em;
+			line-height: 1.1em;
 			display:block;
 			padding-left:5px;
 		}
@@ -97,15 +99,24 @@ $hover-primary: #345478;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	li a{
-		color:white;
-		padding:12px 15px;
-	}
-	.dropdown-menu, .dropdown-toggle a{
-		background-color: $brand-primary;
-	}
-	li a:hover, li a:focus, .active, .open .dropdown-toggle{
-		background-color: $hover-primary;
+	ul{
+		width:100%;
+		
+		li.master{
+			width: 16%;
+			text-align:center;
+			white-space:nowrap;
+			a{
+				color:white;
+				padding:12px 15px;
+			}
+		}
+		.dropdown-menu, .dropdown-toggle a{
+			background-color: $brand-primary;
+		}
+		li a:hover, li a:focus, .active, .open .dropdown-toggle{
+			background-color: $hover-primary;
+		}
 	}
 	
 	
@@ -223,12 +234,20 @@ $hover-primary: #345478;
 				-webkit-border-radius: 0;
 				-moz-border-radius: 0;
 				border-radius: 0;
+				font-size:1.1em;
 			}
 			.parent{
-				margin:30px;
+				margin:10px;
+				font-size:1.1em;
 			}
 			.tree{
 				display:none;
+				li{
+					a{
+						font-size:0.8em;
+						padding:10px 8px;
+					}
+				}
 			}
 			li label{
 				cursor:pointer;
@@ -242,7 +261,7 @@ $hover-primary: #345478;
 */
 		.nav-list{
 			.nav-list{
-				margin-left:20px;
+				margin-left:0px;
 			}
 		}
 		
@@ -259,7 +278,7 @@ $hover-primary: #345478;
 		.list-item{
             h2{
                 font-weight:bold;
-                font-size:1.2em;
+                font-size:1.4em;
             }
 			border:1px solid $gray-light;
 			margin:5px 0;
@@ -269,6 +288,7 @@ $hover-primary: #345478;
 			}
             .num-loto{
                 font-weight:bold;
+                font-size:1.1em;
             }
             .list-item-right{
                 float:right;
@@ -284,6 +304,9 @@ $hover-primary: #345478;
                     font-size:1.5em;
                     color:$brand-danger;
                     font-weight:bold;
+                    span{
+						font-size:0.4em;
+                    }
                 }
             }
 		}
