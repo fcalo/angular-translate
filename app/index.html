@@ -29,7 +29,7 @@
 				<a  href="/"><img src="images/logo.png"></a>
 				<span>La web donde sorteas tus productos y consigues mucho más!</span>
 			 </div>
-			 <div class="hidden-xs hidden-sm col-md-4 col-lg-5">
+			 <div class="hidden-xs hidden-sm col-md-4 col-lg-5 center">
 				 <ul class="nav navbar-nav navbar-right">
 					
 					<li class="dropdown">
@@ -82,7 +82,7 @@
 				  
 				  
 				<div class="user-area">
-					<span>Área de usuario</span>
+					<span>Área de usuarios</span>
 					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn translate">{{ "SIGN_IN" | translate }}</button>
 					<button type="button" class="btn btn-info navbar-btn translate">{{ 'SIGN_UP' | translate }}</button>
 					<span class="clear"></span>
@@ -118,12 +118,11 @@
 				
 	 <div id="menu" class="container">
 		 <ul class="nav navbar-nav">
-			<li class="master"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li class="master home"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
 			<li class="master"><a href="#">Quiénes somos</a></li>
 			<li class="dropdown master">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Categorias <span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Categorías <span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu" >
-					
 				   <li class="dropdown-submenu">
 					  <a href="#">Electrónica</a>
 					  <ul class="dropdown-menu">
@@ -173,7 +172,15 @@
 					
 				</ul>
 			</li>
-			<li class="master"><a href="#">Sorteos</a></li>
+			<li class="master dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sorteos <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu" >
+				   <li ><a href="#">En proceso</a></li>
+				   <li ><a href="#">Pasados</a></li>
+				   <li ><a href="#">Próximos</a></li>
+				</ul>
+					
+			</li>
 			<li class="master"><a href="#">Contacto</a></li>
 			</li>
 		  </ul>
@@ -185,7 +192,7 @@
       <div id='main-container' class="row">
 		<div id="sidebar" class="hidden-xs hidden-sm col-md-2">
 			<div class="module">
-				<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorias</div>
+				<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorías</div>
 				<ul class="nav nav-list parent">
 					<li><label class="tree-toggler nav-header">Electrónica</label>
 						<ul class="nav nav-list tree">
