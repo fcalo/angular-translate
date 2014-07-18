@@ -60,8 +60,9 @@
 				
 			</div>
 			<div class="col-xs-6 col-sm-7 col-md-4 col-lg-3 right">  
+
+<!--
 				<ul class="hidden-md hidden-lg nav navbar-nav">
-					
 					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> <span id="language-label"> Idioma : ES </span><span class="caret"></span></a>
 					  <ul id="language-selector" class="dropdown-menu" role="menu" >
@@ -76,11 +77,24 @@
 					<li class="divider"></li>
 					</li>
 				  </ul>
-				<div id="user-area">
-					<button type="button" class="btn btn-info navbar-btn translate">{{ 'SIGN_UP' | translate }}</button>
+				  
+-->
+				  
+				  
+				<div class="user-area">
+					<span>Área de usuario</span>
 					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn translate">{{ "SIGN_IN" | translate }}</button>
+					<button type="button" class="btn btn-info navbar-btn translate">{{ 'SIGN_UP' | translate }}</button>
+					<span class="clear"></span>
 				</div>
-				<button type="button" class="btn btn-warning navbar-btn">Vende tu producto</button>
+				<div class="user-area seller">
+					<span>Área de vendedores</span>
+					<button type="button" class="btn btn-warning navbar-btn">Vende tu producto</button>
+					<span class="clear"></span>
+				</div>
+<!--
+				
+-->
 			</div>	  
 		</div>
 	</div>

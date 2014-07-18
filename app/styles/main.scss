@@ -16,7 +16,6 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 $hover-primary: #345478;
 
 
-
 .container{
 	border-left:1px solid $gray-light;
 	border-right:1px solid $gray-light;
@@ -28,6 +27,13 @@ $hover-primary: #345478;
 .translate{
 	visibility:hidden;
 }
+
+.clear{
+	clear:both;
+	display:block;
+	float:none !important;
+}
+	
 
 #header{
 	padding:10px 0 15px;
@@ -61,15 +67,32 @@ $hover-primary: #345478;
 	.right{
 		text-align:right;
 		padding-right:25px;
-		button{
-			width:255px;
-		}
-		#user-area{
-			button{
-				width:125px;
+		.user-area{
+			margin-bottom: 5px;
+			border:1px solid $gray-light;
+			padding:0 20px 0;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			span{
+				font-size:0.6em;
+				float: left;
 			}
-		
+			button{
+				clear:left;
+				float:right;
+				margin-right:5px;
+				width:47%;
+			}
+			
 		}
+		.seller{
+			button{
+				width:100%;
+				float:none;
+			}
+		}
+		
 	}
 }
 #little-search{
