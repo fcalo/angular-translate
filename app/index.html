@@ -83,13 +83,13 @@
 				  
 				<div class="user-area">
 					<span>Área de usuarios</span>
-					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn translate">{{ "SIGN_IN" | translate }}</button>
-					<button type="button" class="btn btn-info navbar-btn translate">{{ 'SIGN_UP' | translate }}</button>
+					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn translate">{{ "Iniciar sesión" | translate }}</button>
+					<a class="btn btn-info navbar-btn translate" href="#/register">{{ 'Registrese' | translate }}</a>
 					<span class="clear"></span>
 				</div>
 				<div class="user-area seller">
 					<span>Área de vendedores</span>
-					<button type="button" class="btn btn-warning navbar-btn">Vende tu producto</button>
+					<button type="button" class="btn btn-warning navbar-btn translate">{{ "Vende tu producto" | translate }}</button>
 					<span class="clear"></span>
 				</div>
 <!--
@@ -122,7 +122,7 @@
 			<li class="master"><a href="#">Quiénes somos</a></li>
 			<li class="dropdown master">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Categorías <span class="caret"></span></a>
-				<ul class="dropdown-menu" role="menu" >
+				<ul class="dropdown-menu dropdown-menu-primary" role="menu" >
 				   <li class="dropdown-submenu">
 					  <a href="#">Electrónica</a>
 					  <ul class="dropdown-menu">
@@ -174,7 +174,7 @@
 			</li>
 			<li class="master dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sorteos <span class="caret"></span></a>
-				<ul class="dropdown-menu" role="menu" >
+				<ul class="dropdown-menu dropdown-menu-primary" role="menu" >
 				   <li ><a href="#">En proceso</a></li>
 				   <li ><a href="#">Pasados</a></li>
 				   <li ><a href="#">Próximos</a></li>
@@ -270,31 +270,24 @@
 			<h4 class="modal-title" id="login-label"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</h4>
 		  </div>
 		  <div class="modal-body">
-                <fieldset>
-                  <div class="form-group">
-                    
-                    <div class="col-lg-12">
-						<div class="left-inner-addon ">
-							<span class="glyphicon glyphicon-user"></span>
-							<input type="text" class="form-control" id="username" placeholder="usuario">
-						</div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    
-                    <div class="col-lg-12">
-						<div class="left-inner-addon ">
-							<span class="glyphicon glyphicon-lock"></span>
-							<input type="text" class="form-control" id="password" placeholder="contraseña">
-						</div>
-                      
-                    </div>
-                  </div>
-                  
-                </fieldset>
-              </form>
-              <button type="button" class="btn btn-link" id="btn_reset">¿Has olvidado la contraseña?</button>
-              <button type="button" class="btn btn-link" id="btn_reset">Regístrate</button>
+        <form role="form">
+          <fieldset>
+            <div class="form-group">
+              <div class="left-inner-addon ">
+                <span class="glyphicon glyphicon-user"></span>
+                <input type="text" class="form-control" id="username" placeholder="usuario">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="left-inner-addon ">
+                <span class="glyphicon glyphicon-lock"></span>
+                <input type="text" class="form-control" id="password" placeholder="contraseña">
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <button type="button" class="btn btn-link" id="btn-reset">¿Has olvidado la contraseña?</button>
+        <button type="button" class="btn btn-link" id="btn-register">Regístrate</button>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -355,6 +348,9 @@
         <script src="scripts/controllers/muskco.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/controllers/user.js"></script>
+        <script src="scripts/controllers/reset.js"></script>
         <!-- endbuild -->
 </body>
 </html>

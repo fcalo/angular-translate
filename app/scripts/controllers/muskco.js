@@ -34,6 +34,15 @@ angular.module('wwwApp')
 		$('#language-label').html(strs[0] + ' : ' + $(this).html() + ' ');
 	});
 	
-    setTimeout("$('.translate').css('visibility','visible');",500);
+  $("#btn-register").click(function(){
+    $("#login-modal").modal('hide');
+    window.location = "#/register"
+  });
+  $("#btn-reset").click(function(){
+    $("#login-modal").modal('hide');
+    window.location = "#/reset"
+  });
+  
+    //~ setTimeout("$('.translate').css('visibility','visible');",500);
     
   });

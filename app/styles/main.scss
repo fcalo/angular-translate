@@ -24,9 +24,11 @@ $hover-primary: #345478;
 	padding-bottom:30px;
 }
 
+/*
 .translate{
 	visibility:hidden;
 }
+*/
 
 .clear{
 	clear:both;
@@ -73,16 +75,17 @@ $hover-primary: #345478;
 		.user-area{
 			margin-bottom: 5px;
 			border:1px solid $gray-light;
-			padding:0 20px 0;
+			padding:8px 20px 0 20px;
 			text-align:center;
 			span{
 				font-size:0.85em;
 				float: left;
 			}
-			button{
+			button, a.btn{
 				clear:left;
 				float:right;
 				margin-right:5px;
+                margin-top: 0px;
 				padding:3px 12px;
 				width:47%;
 			}
@@ -146,6 +149,10 @@ $hover-primary: #345478;
 		li a:hover, li a:focus, .active, .open .dropdown-toggle{
 			background-color: $hover-primary;
 		}
+        
+        .dropdown:hover .dropdown-menu-primary {
+            display: block;
+        }
 	}
 	
 	
@@ -157,6 +164,9 @@ $hover-primary: #345478;
 	
 	.dropdown-submenu {
 		position: relative;
+        ul{
+            width:205px;
+        }
 	}
 
 	.dropdown-submenu>.dropdown-menu {
@@ -182,6 +192,7 @@ $hover-primary: #345478;
 		border-left-color: #ccc;
 		margin-top: 5px;
 		margin-right: -10px;
+        
 	}
 
 	.dropdown-submenu:hover>a:after {
@@ -305,6 +316,32 @@ $hover-primary: #345478;
 */  
         h1{
             margin-bottom:5px;
+        }
+        .work-area{
+            border:1px solid $gray-light;
+            margin:5px 0;
+            padding:10px;
+            h2{
+                font-size:1.5em;
+                color:$brand-primary;
+                clear:left;
+            }
+            .c2{
+              width:50%;
+              float:left;
+              padding:5px;
+            }
+            #panel_address_shipping{
+              display:None;
+            }
+            button{
+              float:right;
+              margin-left:5px;
+              
+            }
+            #user-tab li{
+              cursor:pointer;
+            }
         }
 		.list-item{
             h2{
