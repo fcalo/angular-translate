@@ -36,6 +36,10 @@ angular
         templateUrl: 'views/user.html',
         controller: 'UserCtrl'
       })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

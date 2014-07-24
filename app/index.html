@@ -81,8 +81,8 @@
 -->
 				  
         <div ng-show="login_ok">
-					{{ "Hola" | translate }} <a href="#/user/{{ user_login.id }}">{{ user_login.name }} {{ user_login.surname }}</a>
-          <a class="btn btn-link" ng-click="logout()">{{ "Desconectar" | translate }}</a>
+					<span class="glyphicon glyphicon-user"></span> {{ "Hola" | translate }} <a href="#/user/{{ user_login.id }}">{{ user_login.name }} {{ user_login.surname }}</a>
+          <a class="btn btn-link" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> {{ "Desconectar" | translate }}</a>
 				</div>
 				<div class="user-area" ng-hide="login_ok">
 					<span>Área de usuarios</span>
@@ -184,7 +184,7 @@
 				</ul>
 					
 			</li>
-			<li class="master"><a href="#">Contacto</a></li>
+			<li class="master"><a href="#/contact">Contacto</a></li>
 			<li class="master" ng-show="login_ok"><a href="#/user/{{ user_login.id }}">Mi cuenta</a></li>
 			</li>
 		  </ul>
@@ -356,6 +356,7 @@
         <script src="scripts/controllers/register.js"></script>
         <script src="scripts/controllers/user.js"></script>
         <script src="scripts/controllers/reset.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -14,12 +14,7 @@ angular.module('wwwApp')
       'AngularJS',
       'Karma'
     ];
-    $("#address_match").click(function(){
-      if ($("#address_match").prop("checked"))
-        $("#panel_address_shipping").fadeIn();
-      else
-        $("#panel_address_shipping").fadeOut();
-    });
+    
       $scope.registerUser = function(){
         //~ $http({
           //~ url:'data_dev/register.json',

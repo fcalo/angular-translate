@@ -14,7 +14,10 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 */
 
 $hover-primary: #345478;
-
+a{
+  cursor:pointer;
+  text-decoration:none;
+}
 
 .container{
 	border-left:1px solid $gray-light;
@@ -34,6 +37,15 @@ $hover-primary: #345478;
 	clear:both;
 	display:block;
 	float:none !important;
+}
+
+.first{
+  padding-left:0;
+  margin-left:0;
+}
+.last{
+  padding-right:0;
+  margin-right:0;
 }
 	
 
@@ -149,7 +161,6 @@ $hover-primary: #345478;
 		li a:hover, li a:focus, .active, .open .dropdown-toggle{
 			background-color: $hover-primary;
 		}
-        
         .dropdown:hover .dropdown-menu-primary {
             display: block;
         }
@@ -331,9 +342,6 @@ $hover-primary: #345478;
               float:left;
               padding:5px;
             }
-            #panel_address_shipping{
-              display:None;
-            }
             button{
               float:right;
               margin-left:5px;
@@ -342,6 +350,35 @@ $hover-primary: #345478;
             #user-tab li{
               cursor:pointer;
             }
+            #lotto{
+              table{
+                .label{
+                  display:block;
+                  line-height:14px;
+                }
+                div{
+                  display:none;
+                  
+                  
+                  span{
+                    display:block;
+                    border-top:1px solid $gray-lighter;
+           
+                  }
+                }
+                a{
+                  display:block;
+                  width:100px;
+                }
+              }
+            }
+                
+        }
+        .contact{
+          .fa{
+            font-size:126px;
+            margin:50px 100px 0 0;
+          }
         }
 		.list-item{
             h2{

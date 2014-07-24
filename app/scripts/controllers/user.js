@@ -12,8 +12,25 @@ angular.module('wwwApp')
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
+      'ngAnimate'
     ];
+    
+    
+    $scope.expand_label="Ver Todas";
+    $scope.expand_dir="down";
+    $scope.expand_lotto = function(){
+      var obj = $("#lotto table div");
+      if (obj.is(":visible")){
+        $("#lotto table div").fadeOut();
+        $scope.expand_label="Ver todas";
+        $scope.expand_dir="down";
+      }else{
+        $scope.expand_label="Ocultar";
+        $scope.expand_dir="up";
+        $("#lotto table div").fadeIn();
+      }
+    }
     
     //~ $routeParams.user_id
     
@@ -24,11 +41,5 @@ angular.module('wwwApp')
       $("#" + $(this).attr("href")).fadeIn();
     })
     
-    $("#address_match").click(function(){
-      if ($("#address_match").prop("checked"))
-        $("#panel_address_shipping").fadeIn();
-      else
-        $("#panel_address_shipping").fadeOut();
-    });
     
   });
