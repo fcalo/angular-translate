@@ -1,0 +1,261 @@
+<h1 class="translate"> {{ "Mi cuenta" | translate }}</h1>
+
+
+<div class="work-area">
+  <ul class="nav nav-tabs" role="tablist" id="user-tab">
+    <li class="active"><a href="user-data" class="translate">{{ "Datos personales" | translate }}</a></li>
+    <li><a href="fiscal" class="translate">{{ "Datos economicos" | translate }}</a></li>
+    <li><a href="lotto" class="translate">{{ "Sorteos" | translate }}</a></li>
+    <li><a href="history" class="translate">{{ "Historial de pedidos" | translate }}</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="user-data">
+      <form role="form">
+       
+        <h2 class="translate">{{ "Datos personales" || translate }}</h2>
+        <div class="c2">
+          <div class="form-group">
+            <label for="name" class="translate">{{ "Nombre" | translate }}</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="form-group">
+            <label for="surname" class="translate">{{ "Apellidos" | translate }}</label>
+            <input type="text" class="form-control" id="surname">
+          </div>
+          <div class="form-group">
+            <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
+            <input type="text" class="form-control" id="surname">
+          </div>
+        </div>
+        <div class="c2">
+          <div class="form-group">
+            <label for="telephone" class="translate">{{ "Teléfono" | translate }}</label>
+            <input type="text" class="form-control" id="telephone">
+          </div>
+          <div class="form-group">
+            <label for="email" class="translate">{{ "Email" | translate }}</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+        </div>
+        
+        <h2 class="translatte">{{ "Dirección" | translate }}</h2>
+        <div class="c2">
+          <div class="form-group">
+            <label for="address" class="translate">{{ "Dirección" | translate }}</label>
+            <input type="text" class="form-control" id="address">
+          </div>
+          <div class="form-group">
+            <label for="postal_code" class="translate">{{ "Código postal" | translate }}</label>
+            <input type="text" class="form-control" id="postal_code">
+          </div>
+        </div>
+        <div class="c2">
+          <div class="form-group">
+            <label for="country" class="translate">{{ "País" | translate }}</label>
+            <input type="text" class="form-control" id="country">
+          </div>
+          <div class="form-group">
+            <label for="province" class="translate">{{ "Provincia" | translate }}</label>
+            <input type="text" class="form-control" id="province">
+          </div>
+          <div class="form-group">
+            <label for="city" class="translate">{{ "Ciudad" | translate }}</label>
+            <input type="text" class="form-control" id="city">
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="address_match" > <label for="address_match" class="translate"> {{ "Utilizar una dirección de envío distinta" | translate }}</label>
+        </div>
+        <div id="panel_address_shipping">
+          <h2 class="translatte">{{ "Dirección de envío" | translate }}</h2>
+          <div class="c2">
+            <div class="form-group">
+              <label for="address_shipping" class="translate">{{ "Dirección" | translate }}</label>
+              <input type="text" class="form-control" id="address_shipping">
+            </div>
+            <div class="form-group">
+              <label for="postal_code_shipping" class="translate">{{ "Código postal" | translate }}</label>
+              <input type="text" class="form-control" id="postal_shipping">
+            </div>
+          </div>
+          <div class="c2">
+            <div class="form-group">
+              <label for="country_shipping" class="translate">{{ "País" | translate }}</label>
+              <input type="text" class="form-control" id="country_shipping">
+            </div>
+            <div class="form-group">
+              <label for="province_shipping" class="translate">{{ "Provincia" | translate }}</label>
+              <input type="text" class="form-control" id="province_shipping">
+            </div>
+            <div class="form-group">
+              <label for="city_shipping" class="translate">{{ "Ciudad" | translate }}</label>
+              <input type="text" class="form-control" id="city_shipping">
+            </div>
+          </div>
+        </div>
+        <span class="clear"></span>
+        <button type="submit" class="btn btn-primary translate">{{ "Guardar" | translate }}</button>
+        <button type="button" data-toggle="modal" data-target="#unsubscribe-modal" class="btn btn-danger translate">{{ "Darme de baja" | translate }}</button>
+        <span class="clear"></span>
+      </form>
+    </div>
+    
+    <div class="tab-pane" id="fiscal">
+      <h2 class="translate">{{ "Datos economicos" || translate }}</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>{{ "Concepto" | translate }}</th>
+            <th>{{ "Fecha" | translate }}</th>
+            <th>{{ "Importe" | translate }}</th>
+            <th>{{ "Saldo" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+            <td>Compra</td>
+            <td>18/8/2014</td>
+            <td>100</td>
+            <td>200</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" data-toggle="modal" data-target="#deposite-modal" class="btn btn-warning translate">{{ "Ingresar fondos" | translate }}</button>
+      <button type="button" data-toggle="modal" data-target="#retire-modal" class="btn btn-primary translate">{{ "Retirar fondos" | translate }}</button>
+      <span class="clear"></span>
+    </div>
+    <div class="tab-pane" id="lotto">
+      <h2 class="translate">{{ "Sorteos" || translate }}</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>{{ "Sorteo" | translate }}</th>
+            <th>{{ "Equipo" | translate }}</th>
+            <th>{{ "Fecha" | translate }}</th>
+            <th>{{ "Papeleta" | translate }}</th>
+            <th>{{ "Resultado" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+            <td>A-FGH-3456</td>
+            <td>Iphone 5</td>
+            <td>18/8/2014 18:31</td>
+            <td>42</td>
+            <td>No Premiado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane" id="history">
+      <h2 class="translate">{{ "Historial de pedidos" || translate }}</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>{{ "Referencia de Pedido" | translate }}</th>
+            <th>{{ "Fecha" | translate }}</th>
+            <th>{{ "Precio total" | translate }}</th>
+            <th>{{ "Estado" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+            <td>3456</td>
+            <td>18/8/2014 18:31</td>
+            <td>254.99 €</td>
+            <td><span class="label label-success">Entregado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
+
+<div class="modal fade" id="unsubscribe-modal" tabindex="-1" role="dialog" aria-labelledby="unsubscribe-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="unsubscribe-label"><span class="glyphicon glyphicon-question-sign"></span> {{ "¿Está seguro?" || translate }} </h4>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "No" || translate }} </button>
+        <button type="button" class="btn btn-primary" id="btn_login"> {{ "Si, quiero que se eliminen todos mis datos" || translate }} </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deposite-modal" tabindex="-1" role="dialog" aria-labelledby="retire-label" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="retire-label"><span class="glyphicon glyphicon-transfer"></span> {{ "Ingresar fondos" || translate }} </h4>
+      </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">{{ "Pago" | translate }}</label>
+                <div class="col-sm-8">
+                  <label class="radio">
+                    <input type="radio" name="method" id="method1" value="paypal"> PayPal
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="method" id="method2" value="credit_card"> {{ "Tarjeta de credito" | translate }}
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">{{ "Importe" | translate }}</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="amount" placeholder="Importe">
+                </div>
+              </div>
+            </fieldset>
+          </form>
+		  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" || translate }} </button>
+        <button type="button" class="btn btn-primary" id="btn_login"> {{ "Continuar" || translate }} </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="retire-modal" tabindex="-1" role="dialog" aria-labelledby="retire-label" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="retire-label"><span class="glyphicon glyphicon-transfer"></span> {{ "Retirar fondos" || translate }} </h4>
+      </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">{{ "Saldo" | translate }}</label>
+                <div class="col-sm-8">
+                  <p class="form-control-static">200€</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">{{ "Importe" | translate }}</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="amount" placeholder="Importe">
+                </div>
+              </div>
+            </fieldset>
+          </form>
+		  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" || translate }} </button>
+        <button type="button" class="btn btn-primary" id="btn_login"> {{ "Continuar" || translate }} </button>
+      </div>
+    </div>
+  </div>
+</div>

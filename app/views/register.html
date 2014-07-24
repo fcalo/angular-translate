@@ -1,0 +1,112 @@
+<h1 class="translate"> {{ "Crear una cuenta" | translate }}</h1>
+
+
+<div class="work-area">
+
+  <form role="form">
+    <h2 class="translate">{{ "Datos de cuenta" || translate }}</h2>
+    <div class="c2">
+      <div class="form-group has-error has-feedback">
+        <label for="user" class="translate">{{ "Usuario" | translate }}</label>
+        <input type="text" class="form-control" id="user" placeholder='{{ "Introduzca usuario" | translate }}'>
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      </div>
+      <div class="form-group">
+        <label for="password" class="translate">{{ "Contraseña" | translate }}</label>
+        <input type="password" class="form-control" id="password" placeholder='{{ "Introduzca contraseña" | translate }}'>
+      </div>
+      <div class="form-group">
+        <label for="repassword" class="translate">{{ "Repita contraseña" | translate }}</label>
+        <input type="password" class="form-control" id="user" placeholder='{{ "Repita contraseña" | translate }}'>
+      </div>
+    </div>
+    <h2 class="translate">{{ "Datos personales" || translate }}</h2>
+    <div class="c2">
+      <div class="form-group">
+        <label for="name" class="translate">{{ "Nombre" | translate }}</label>
+        <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}'>
+      </div>
+      <div class="form-group">
+        <label for="surname" class="translate">{{ "Apellidos" | translate }}</label>
+        <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}'>
+      </div>
+      <div class="form-group">
+        <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
+        <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca documento" | translate }}'>
+      </div>
+    </div>
+    <div class="c2">
+      <div class="form-group">
+        <label for="telephone" class="translate">{{ "Teléfono" | translate }}</label>
+        <input type="text" class="form-control" id="telephone" placeholder='{{ "Introduzca teléfono" | translate }}'>
+      </div>
+      <div class="form-group">
+        <label for="email" class="translate">{{ "Email" | translate }}</label>
+        <input type="text" class="form-control" id="email" placeholder='{{ "Introduzca email" | translate }}'>
+      </div>
+    </div>
+    
+    <h2 class="translatte">{{ "Dirección" | translate }}</h2>
+    <div class="c2">
+      <div class="form-group">
+        <label for="address" class="translate">{{ "Dirección" | translate }}</label>
+        <input type="text" class="form-control" id="address" placeholder='{{ "Introduzca dirección" | translate }}'>
+      </div>
+      <div class="form-group">
+        <label for="postal_code" class="translate">{{ "Código postal" | translate }}</label>
+        <input type="text" class="form-control" id="postal_code" placeholder='{{ "Introduzca código postal" | translate }}'>
+      </div>
+    </div>
+    <div class="c2">
+      <div class="form-group">
+        <label for="country" class="translate">{{ "País" | translate }}</label>
+        <input type="text" class="form-control" id="country" placeholder='{{ "Introduzca país" | translate }}'>
+      </div>
+      <div class="form-group">
+        <label for="province" class="translate">{{ "Provincia" | translate }}</label>
+        <input type="text" class="form-control" id="province" placeholder='{{ "Introduzca provincia" | translate }}'>
+      </div>
+      <div class="form-group">
+        <label for="city" class="translate">{{ "Ciudad" | translate }}</label>
+        <input type="text" class="form-control" id="city" placeholder='{{ "Introduzca ciudad" | translate }}'>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <input type="checkbox" id="address_match" > <label for="address_match" class="translate"> {{ "Utilizar una dirección de envío distinta" | translate }}</label>
+    </div>
+    
+    <div id="panel_address_shipping">
+      <h2 class="translatte">{{ "Dirección de envío" | translate }}</h2>
+      <div class="c2">
+        <div class="form-group">
+          <label for="address_shipping" class="translate">{{ "Dirección" | translate }}</label>
+          <input type="text" class="form-control" id="address_shipping" placeholder='{{ "Introduzca dirección" | translate }}'>
+        </div>
+        <div class="form-group">
+          <label for="postal_code_shipping" class="translate">{{ "Código postal" | translate }}</label>
+          <input type="text" class="form-control" id="postal_shipping" placeholder='{{ "Introduzca código postal" | translate }}'>
+        </div>
+      </div>
+      <div class="c2">
+        <div class="form-group">
+          <label for="country_shipping" class="translate">{{ "País" | translate }}</label>
+          <input type="text" class="form-control" id="country_shipping" placeholder='{{ "Introduzca país" | translate }}'>
+        </div>
+        <div class="form-group">
+          <label for="province_shipping" class="translate">{{ "Provincia" | translate }}</label>
+          <input type="text" class="form-control" id="province_shipping" placeholder='{{ "Introduzca provincia" | translate }}'>
+        </div>
+        <div class="form-group">
+          <label for="city_shipping" class="translate">{{ "Ciudad" | translate }}</label>
+          <input type="text" class="form-control" id="city_shipping" placeholder='{{ "Introduzca ciudad" | translate }}'>
+        </div>
+      </div>
+    </div>
+    <span class="clear"></span>
+    <button type="button" ng-click="registerUser()" class="btn btn-primary translate">{{ "Registrarse" | translate }}</button>
+    <span class="clear"></span>
+  </form>
+</div>
+
+

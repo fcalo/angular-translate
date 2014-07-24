@@ -80,14 +80,17 @@
 				  
 -->
 				  
-				  
-				<div class="user-area">
+        <div ng-show="login_ok">
+					{{ "Hola" | translate }} <a href="#/user/{{ user_login.id }}">{{ user_login.name }} {{ user_login.surname }}</a>
+          <a class="btn btn-link" ng-click="logout()">{{ "Desconectar" | translate }}</a>
+				</div>
+				<div class="user-area" ng-hide="login_ok">
 					<span>Área de usuarios</span>
 					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn translate">{{ "Iniciar sesión" | translate }}</button>
 					<a class="btn btn-info navbar-btn translate" href="#/register">{{ 'Registrese' | translate }}</a>
 					<span class="clear"></span>
 				</div>
-				<div class="user-area seller">
+				<div class="user-area seller" ng-hide="login_ok">
 					<span>Área de vendedores</span>
 					<button type="button" class="btn btn-warning navbar-btn translate">{{ "Vende tu producto" | translate }}</button>
 					<span class="clear"></span>
@@ -182,13 +185,13 @@
 					
 			</li>
 			<li class="master"><a href="#">Contacto</a></li>
+			<li class="master" ng-show="login_ok"><a href="#/user/{{ user_login.id }}">Mi cuenta</a></li>
 			</li>
 		  </ul>
 	 </div>
 	 
     
     <div class="container main">
-      
       <div id='main-container' class="row">
 		<div id="sidebar" class="hidden-xs hidden-sm col-md-2">
 			<div class="module">
@@ -275,23 +278,25 @@
             <div class="form-group">
               <div class="left-inner-addon ">
                 <span class="glyphicon glyphicon-user"></span>
-                <input type="text" class="form-control" id="username" placeholder="usuario">
+                <input type="text" class="form-control" id="username" placeholder="usuario" ng-model="user.username">
               </div>
             </div>
             <div class="form-group">
               <div class="left-inner-addon ">
                 <span class="glyphicon glyphicon-lock"></span>
-                <input type="text" class="form-control" id="password" placeholder="contraseña">
+                <input type="password" class="form-control" id="password" placeholder="contraseña" ng-model="user.password">
               </div>
             </div>
           </fieldset>
+          <div class="alert alert-danger" ng-show="error_login">{{ error_login }}</div>
+          <div class="alert alert-success" ng-show="login_ok">{{ "Datos correctos" | translate }}</div>
         </form>
         <button type="button" class="btn btn-link" id="btn-reset">¿Has olvidado la contraseña?</button>
         <button type="button" class="btn btn-link" id="btn-register">Regístrate</button>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			<button type="button" class="btn btn-primary" id="btn_login">Iniciar sesión</button>
+			<button type="button" class="btn btn-primary" id="btn_login" ng-click="login(user)">Iniciar sesión</button>
 		  </div>
 		</div>
 	  </div>

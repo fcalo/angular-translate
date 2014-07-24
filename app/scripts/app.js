@@ -32,7 +32,7 @@ angular
         templateUrl: 'views/reset.html',
         controller: 'ResetCtrl'
       })
-      .when('/user', {
+      .when('/user/:user_id', {
         templateUrl: 'views/user.html',
         controller: 'UserCtrl'
       })

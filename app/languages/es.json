@@ -2,5 +2,7 @@
 	"SIGN_IN": "Iniciar sesión",
 	"SIGN_UP": "Registrese",
 	"SELL": "Vender",
-	"REGISTER": "Registro"
+	"REGISTER": "Registro",
+  
+  "Usuario no valido" : "Usuario no valido"
 }
