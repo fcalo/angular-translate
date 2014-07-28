@@ -3,91 +3,107 @@
 
 <div class="work-area">
 
-  <form role="form">
+  <div class="alert alert-success" ng-show="register_ok">
+    <h2>Enhorabuena</h2>
+    {{ "Ya casi hemos terminado. Siguiendo los pasos que le indicamos en un email que hemos enviado a su email" | translate }} <b>{{ email_register}}</b> {{ "podrá verificar su cuenta" || translate }}  
+  </div>
+  <form role="form" ng-hide="register_ok">
     <h2 class="translate">{{ "Datos de cuenta" || translate }}</h2>
     <div class="c2">
-      <div class="form-group has-error has-feedback">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['username']}">
         <label for="user" class="translate">{{ "Usuario" | translate }}</label>
-        <input type="text" class="form-control" id="user" placeholder='{{ "Introduzca usuario" | translate }}'/>
-        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+        <input type="text" class="form-control" id="user" placeholder='{{ "Introduzca usuario" | translate }}' ng-model="register.username"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['username']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group"  ng-class="{'has-error has-feedback': error['password']}">
         <label for="password" class="translate">{{ "Contraseña" | translate }}</label>
-        <input type="password" class="form-control" id="password" placeholder='{{ "Introduzca contraseña" | translate }}'/>
+        <input type="password" class="form-control" id="password" placeholder='{{ "Introduzca contraseña" | translate }}' ng-model="register.password"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['password']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['repassword']}">
         <label for="repassword" class="translate">{{ "Repita contraseña" | translate }}</label>
-        <input type="password" class="form-control" id="user" placeholder='{{ "Repita contraseña" | translate }}'/>
+        <input type="password" class="form-control" id="user" placeholder='{{ "Repita contraseña" | translate }}' ng-model="register.repassword"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['repassword']"></span>
       </div>
     </div>
     <h2 class="translate">{{ "Datos personales" || translate }}</h2>
     <div class="c2">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['repassword']}">
         <label for="name" class="translate">{{ "Nombre" | translate }}</label>
-        <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}'/>
+        <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}' ng-model="register.name"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['name']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['surname']}">
         <label for="surname" class="translate">{{ "Apellidos" | translate }}</label>
-        <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}'/>
+        <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}' ng-model="register.surname"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['surname']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['nif']}">
         <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
-        <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca documento" | translate }}'/>
+        <input type="text" class="form-control" id="nif" placeholder='{{ "Introduzca documento" | translate }}' ng-model="register.nif"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['nif']"></span>
       </div>
     </div>
     <div class="c2">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['telephone']}">
         <label for="telephone" class="translate">{{ "Teléfono" | translate }}</label>
-        <input type="text" class="form-control" id="telephone" placeholder='{{ "Introduzca teléfono" | translate }}'/>
+        <input type="text" class="form-control" id="telephone" placeholder='{{ "Introduzca teléfono" | translate }}' ng-model="register.telephone"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['telephone']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['email']}">
         <label for="email" class="translate">{{ "Email" | translate }}</label>
-        <input type="text" class="form-control" id="email" placeholder='{{ "Introduzca email" | translate }}'/>
+        <input type="text" class="form-control" id="email" placeholder='{{ "Introduzca email" | translate }}' ng-model="register.email"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['email']"></span>
       </div>
     </div>
     
     <h2 class="translatte">{{ "Dirección" | translate }}</h2>
     <div class="c2">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['email']}">
         <label for="address" class="translate">{{ "Dirección" | translate }}</label>
-        <input type="text" class="form-control" id="address" placeholder='{{ "Introduzca dirección" | translate }}'/>
+        <input type="text" class="form-control" id="address" placeholder='{{ "Introduzca dirección" | translate }}' ng-model="register.address"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['address']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['number']}">
         <div class="col-md-3 first">
           <label for="number" class="translate">{{ "Nº" | translate }}</label>
-          <input type="text" class="form-control" id="number"/>
+          <input type="text" class="form-control" id="number" ng-model="register.number"/>
         </div>
         <div class="col-md-3">
           <label for="stair" class="translate">{{ "Bloque/Esc." | translate }}</label>
-          <input type="text" class="form-control" id="number"/>
+          <input type="text" class="form-control" id="stair"/ ng-model="register.stair">
         </div>
         <div class="col-md-3">
           <label for="floor" class="translate">{{ "Piso" | translate }}</label>
-          <input type="text" class="form-control" id="floor"/>
+          <input type="text" class="form-control" id="floor" ng-model="register.floor"/>
         </div>
         <div class="col-md-3 last">
           <label for="char" class="translate">{{ "Letra" | translate }}</label>
-          <input type="text" class="form-control" id="char"/>
+          <input type="text" class="form-control" id="letter" ng-model="register.letter"/>
         </div>
         <div class="clearfix"></div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['postal_code']}">
         <label for="postal_code" class="translate">{{ "Código postal" | translate }}</label>
-        <input type="text" class="form-control" id="postal_code" placeholder='{{ "Introduzca código postal" | translate }}'/>
+        <input type="text" class="form-control" id="postal_code" placeholder='{{ "Introduzca código postal" | translate }}' ng-model="register.postal_code"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['postal_code']"></span>
       </div>
     </div>
     <div class="c2">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['country']}">
         <label for="country" class="translate">{{ "País" | translate }}</label>
-        <input type="text" class="form-control" id="country" placeholder='{{ "Introduzca país" | translate }}'/>
+        <input type="text" class="form-control" id="country" placeholder='{{ "Introduzca país" | translate }}' ng-model="register.country"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['province']}">
         <label for="province" class="translate">{{ "Provincia" | translate }}</label>
-        <input type="text" class="form-control" id="province" placeholder='{{ "Introduzca provincia" | translate }}'/>
+        <input type="text" class="form-control" id="province" placeholder='{{ "Introduzca provincia" | translate }}' ng-model="register.province"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['city']}">
         <label for="city" class="translate">{{ "Ciudad" | translate }}</label>
-        <input type="text" class="form-control" id="city" placeholder='{{ "Introduzca ciudad" | translate }}'/>
+        <input type="text" class="form-control" id="city" placeholder='{{ "Introduzca ciudad" | translate }}' ng-model="register.city"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city']"></span>
       </div>
     </div>
     <div class="form-group clear">
@@ -97,52 +113,59 @@
     <div id="panel_address_shipping" ng-show="address_match">
       <h2 class="translatte">{{ "Dirección de envío" | translate }}</h2>
       <div class="c2">
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error has-feedback': error['address_shipping']}">
           <label for="address_shipping" class="translate">{{ "Dirección" | translate }}</label>
-          <input type="text" class="form-control" id="address_shipping" placeholder='{{ "Introduzca dirección" | translate }}'/>
+          <input type="text" class="form-control" id="address_shipping" placeholder='{{ "Introduzca dirección" | translate }}' ng-model="register.address_shipping"/>
+          <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['address_shipping']"></span>
         </div>
-        <div class="form-group">
-          <div class="col-md-3 first">
+        <div class="form-group" ng-class="{'has-error has-feedback': error['number_shipping']}">
+          <div class="col-md-3 first" 
             <label for="number_shipping" class="translate">{{ "Nº" | translate }}</label>
-            <input type="text" class="form-control" id="number_shipping"/>
+            <input type="text" class="form-control" id="number_shipping"  ng-model="register.number_shipping"/>
           </div>
           <div class="col-md-3">
             <label for="stair_shipping" class="translate">{{ "Bloque/Esc." | translate }}</label>
-            <input type="text" class="form-control" id="number_shipping"/>
+            <input type="text" class="form-control" id="stair_shipping" ng-model="register.stair_shipping"/>
           </div>
           <div class="col-md-3">
             <label for="floor_shipping" class="translate">{{ "Piso" | translate }}</label>
-            <input type="text" class="form-control" id="floor_shipping"/>
+            <input type="text" class="form-control" id="floor_shipping" ng-model="register.floor_shipping"/>
           </div>
           <div class="col-md-3 last">
-            <label for="char_shipping" class="translate">{{ "Letra" | translate }}</label>
-            <input type="text" class="form-control" id="char_shipping"/>
+            <label for="letter_shipping" class="translate">{{ "Letra" | translate }}</label>
+            <input type="text" class="form-control" id="letter_shipping" ng-model="register.letter_shipping"/>
           </div>
           <div class="clearfix"></div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error has-feedback': error['postal_code_shipping']}">
           <label for="postal_code_shipping" class="translate">{{ "Código postal" | translate }}</label>
-          <input type="text" class="form-control" id="postal_shipping" placeholder='{{ "Introduzca código postal" | translate }}'/>
+          <input type="text" class="form-control" id="postal_code_shipping" placeholder='{{ "Introduzca código postal" | translate }}' ng-model="register.postal_code_shipping"/>
+          <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['postal_code_shipping']"></span>
         </div>
       </div>
       <div class="c2">
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error has-feedback': error['country_shipping']}">
           <label for="country_shipping" class="translate">{{ "País" | translate }}</label>
-          <input type="text" class="form-control" id="country_shipping" placeholder='{{ "Introduzca país" | translate }}'/>
+          <input type="text" class="form-control" id="country_shipping" placeholder='{{ "Introduzca país" | translate }}' ng-model="register.country_shipping"/>
+          <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country_shipping']"></span>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error has-feedback': error['province_shipping']}">
           <label for="province_shipping" class="translate">{{ "Provincia" | translate }}</label>
-          <input type="text" class="form-control" id="province_shipping" placeholder='{{ "Introduzca provincia" | translate }}'/>
+          <input type="text" class="form-control" id="province_shipping" placeholder='{{ "Introduzca provincia" | translate }}' ng-model="register.province_shipping"/>
+          <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province_shipping']"></span>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-class="{'has-error has-feedback': error['city_shipping']}">
           <label for="city_shipping" class="translate">{{ "Ciudad" | translate }}</label>
-          <input type="text" class="form-control" id="city_shipping" placeholder='{{ "Introduzca ciudad" | translate }}'/>
+          <input type="text" class="form-control" id="city_shipping" placeholder='{{ "Introduzca ciudad" | translate }}'  ng-model="register.city_shipping"/>
+          <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city_shipping']"></span>
         </div>
         
       </div>
     </div>
     <span class="clear"></span>
-    <button type="button" ng-click="registerUser()" class="btn btn-primary translate">{{ "Registrarse" | translate }}</button>
+    <div class="alert alert-danger" ng-show="register_error">{{ register_error }}</div>
+    
+    <button type="button" ng-click="registerUser(register)" class="btn btn-primary translate">{{ "Registrarse" | translate }}</button>
     <span class="clear"></span>
   </form>
 </div>

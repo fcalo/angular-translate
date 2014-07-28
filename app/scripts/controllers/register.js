@@ -15,18 +15,35 @@ angular.module('wwwApp')
       'Karma'
     ];
     
-      $scope.registerUser = function(){
+      $scope.registerUser = function(register){
         //~ $http({
           //~ url:'data_dev/register.json',
           //~ }).success(function(data) {
           //~ alert(data.status);
         //~ });
+        
+        
+        var params = []
+        var k;
+        for (k in register){
+          params.push(k + "=" + register[k])
+        }
+        
         $http({
           url: 'data_dev/register.json',
-          data : "ok=1",
+          data : params.join("&"),
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(data){
-          alert(data.status);
+          if(data.status){
+            $scope.register_ok = true;
+            $scope.email_register = "test@test.es";
+          }else{
+            $scope.register_error = data.error_msg;
+            $scope.error = data.inputs_failed;
+            //~ for (input in data.inputs_failed){
+              //~ $("#" + data.inputs_failed[input]).parent().parent().addClass("has-error");
+            //~ }
+          }
         }).error(function(){
             alert("Ha ocurrido algún error al realizar el registro!.");
         })
