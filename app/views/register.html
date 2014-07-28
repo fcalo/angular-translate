@@ -5,7 +5,7 @@
 
   <div class="alert alert-success" ng-show="register_ok">
     <h2>Enhorabuena</h2>
-    {{ "Ya casi hemos terminado. Siguiendo los pasos que le indicamos en un email que hemos enviado a su email" | translate }} <b>{{ email_register}}</b> {{ "podrá verificar su cuenta" || translate }}  
+    {{ "Ya casi hemos terminado. Siguiendo los pasos que le indicamos en un email que hemos enviado a su email" | translate }} <b>{{ register.email }}</b> {{ "podrá verificar su cuenta" || translate }}  
   </div>
   <form role="form" ng-hide="register_ok">
     <h2 class="translate">{{ "Datos de cuenta" || translate }}</h2>

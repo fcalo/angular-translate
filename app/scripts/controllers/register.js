@@ -36,7 +36,6 @@ angular.module('wwwApp')
         }).success(function(data){
           if(data.status){
             $scope.register_ok = true;
-            $scope.email_register = "test@test.es";
           }else{
             $scope.register_error = data.error_msg;
             $scope.error = data.inputs_failed;
