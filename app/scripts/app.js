@@ -36,6 +36,10 @@ angular
         templateUrl: 'views/user.html',
         controller: 'UserCtrl'
       })
+      .when('/category/:category_url', {
+        templateUrl: 'views/category.html',
+        controller: 'CategoryCtrl'
+      })
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'

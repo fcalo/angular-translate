@@ -123,7 +123,7 @@
 		 <ul class="nav navbar-nav">
 			<li class="master home"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
 			<li class="master"><a href="#">Quiénes somos</a></li>
-			<li class="dropdown master">
+			<li id="menu-categories" class="dropdown master">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Categorías <span class="caret"></span></a>
 				<ul class="dropdown-menu dropdown-menu-primary" role="menu" >
 				   <li class="dropdown-submenu">
@@ -196,7 +196,7 @@
 		<div id="sidebar" class="hidden-xs hidden-sm col-md-2">
 			<div class="module">
 				<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorías</div>
-				<ul class="nav nav-list parent">
+				<ul id="left-categories" class="nav nav-list parent">
 					<li><label class="tree-toggler nav-header">Electrónica</label>
 						<ul class="nav nav-list tree">
 							<li><a href="#">Móviles</a></li>
@@ -357,6 +357,7 @@
         <script src="scripts/controllers/user.js"></script>
         <script src="scripts/controllers/reset.js"></script>
         <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/category.js"></script>
         <!-- endbuild -->
 </body>
 </html>

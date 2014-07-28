@@ -15,6 +15,52 @@ angular.module('wwwApp')
     $scope.changeLanguage = function (langKey) {
       $translate.use(langKey);
     }
+    //load categories
+    $http({
+      url: 'data_dev/categories.json'
+    }).success(function(categories){
+      $("#left-categories").html("");
+      $("#menu-categories ul").html("");
+      var key;
+      for (key in categories){
+        var category = categories[key];
+        
+        var has_subcategories = category["subcategories"].length>0;
+          
+        if (has_subcategories){
+          $("#left-categories").append('<li id="c' + category['id'] + '"><label class="tree-toggler nav-header">' + category['title'] + '</label></li>');
+          $("#menu-categories ul.dropdown-menu-primary").append('<li class="dropdown-submenu" id="c_m' + category['id'] + '"><a href="#/category/' + category['friendly_url'] + '">' + category['title'] + '</a></li>');
+        }else{
+          $("#left-categories").append('<li id="c' + category['id'] + '"><label class="tree-toggler nav-header"><a class="category-label" href="#/category/' + category['friendly_url'] + '">' + category['title'] + '</a></label></li>');
+          $("#menu-categories ul.dropdown-menu-primary").append('<li id="c_m' + category['id'] + '"><a href="#/category/' + category['friendly_url'] + '">' + category['title'] + '</a></li>');
+        }
+        
+        var keySubcategory;
+        
+        if (has_subcategories){
+          $("#left-categories #c" + category['id']).append('<ul class="nav nav-list tree"></ul>');
+          $("#menu-categories ul.dropdown-menu-primary #c_m" + category['id']).append('<ul class="dropdown-menu"></ul>');
+        }
+        for (keySubcategory in category["subcategories"]){
+            var subcategory = category["subcategories"][keySubcategory];
+            $("#left-categories #c" + category['id']+ " ul").append('<li><a href="#/category/' + subcategory['friendly_url'] + '">' + subcategory['title'] + '</a></li>');
+            $("#menu-categories ul #c_m" + category['id']+ " ul").append('<li><a href="#/category/' + subcategory['friendly_url'] + '">' + subcategory['title'] + '</a></li>');
+        }
+        
+      }
+      
+      $('label.tree-toggler').click(function () {
+        if (!$(this).parent().children('ul.tree').is(':visible')){
+          $('label.tree-toggler').each(function(){
+            if ($(this).parent().children('ul.tree').is(':visible')){
+              $(this).parent().children('ul.tree').toggle(300);
+            }
+          });
+        }
+        $(this).parent().children('ul.tree').toggle(300);
+      });
+    });
+    
     $scope.login = function(user){
       $scope.error_login = null;
       $scope.login_ok = null;
@@ -39,7 +85,7 @@ angular.module('wwwApp')
         url: 'data_dev/login.json',
         data : "username=" + user.username +"&password=" + user.password
       }).success(function(data){
-        if (data.status=="ok"){
+        if (data.status){
           $scope.login_ok = true
           $scope.user_login = data;
           setTimeout("$('#login-modal').modal('hide');",500);
@@ -53,12 +99,12 @@ angular.module('wwwApp')
       })
     }
     
-    $scope.logout = function(user){
+    $scope.logout = function(){
       
       $http({
         url: 'data_dev/logout.json'
       }).success(function(data){
-        if (data.status=="ok"){
+        if (data.status){
           $scope.login_ok = null;
           $scope.user_login = null;
           $scope.user.username="";
@@ -70,20 +116,7 @@ angular.module('wwwApp')
       });
     }
     
-	
-    $('label.tree-toggler').click(function () {
-		if (!$(this).parent().children('ul.tree').is(':visible')){
-			$('label.tree-toggler').each(function(){
-				if ($(this).parent().children('ul.tree').is(':visible')){
-					$(this).parent().children('ul.tree').toggle(300);
-				}
-			});
-		}
-		$(this).parent().children('ul.tree').toggle(300);
 		
-		
-	});
-	
 	$('#language-selector li a').click(function(){
 		
 		var strs = $('#language-label').html().split(' : ');

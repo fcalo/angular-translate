@@ -1,0 +1,150 @@
+[{
+"id":1,
+"title":"Electrónica",
+"friendly_url": "electronica",
+"subcategories":[
+  {
+    "id":11,
+    "title":"Móviles",
+    "friendly_url": "moviles"
+  },
+  {
+    "id":12,
+    "title":"Tablets",
+    "friendly_url": "tablets"
+  },
+  {
+    "id":13,
+    "title":"Portátiles",
+    "friendly_url": "portatiles"
+  },
+  {
+    "id":14,
+    "title":"Ordenadores de sobremesa",
+    "friendly_url": "sobremesa"
+  },
+  {
+    "id":15,
+    "title":"Cámaras Fotográficas",
+    "friendly_url": "camaras"
+  },
+  {
+    "id":16,
+    "title":"Consolas",
+    "friendly_url": "consolas"
+  },
+  {
+    "id":17,
+    "title":"Consolas mini",
+    "friendly_url": "consolas-mini"
+  }
+ 
+]
+},
+{
+"id":2,
+"title":"Electrodomésticos",
+"friendly_url": "electrodomesticos",
+"subcategories":[
+  {
+    "id":21,
+    "title":"Televisores",
+    "friendly_url": "televisores"
+  },
+  {
+    "id":22,
+    "title":"Blu-Ray",
+    "friendly_url": "blueray"
+  }
+]
+},
+{
+"id":3,
+"title":"Moda",
+"friendly_url": "moda",
+"subcategories":[
+  {
+    "id":31,
+    "title":"Zapatos",
+    "friendly_url": "zapatos"
+  },
+  {
+    "id":32,
+    "title":"Deportivas",
+    "friendly_url": "deportivas"
+  }
+]
+},
+{
+"id":4,
+"title":"Viajes",
+"friendly_url": "viajes",
+"subcategories":[
+  {
+    "id":41,
+    "title":"Paquete Fin de Semana",
+    "friendly_url": "fin-de-semana"
+  },
+  {
+    "id":42,
+    "title":"Paquete 5 días",
+    "friendly_url": "5-dias"
+  },
+  {
+    "id":43,
+    "title":"Paquete 10 días",
+    "friendly_url": "10-dias"
+  }
+]
+},
+{
+"id":5,
+"title":"Vehículos",
+"friendly_url": "vehiculos",
+"subcategories":[
+  {
+    "id":51,
+    "title":"Motos",
+    "friendly_url": "motos"
+  },
+  {
+    "id":52,
+    "title":"Bicicletas",
+    "friendly_url": "bicicletas"
+  }
+]
+},
+{
+"id":6,
+"title":"Entradas",
+"friendly_url": "entradas",
+"subcategories":[]
+},
+{
+"id":7,
+"title":"Complementos",
+"friendly_url": "complementos",
+"subcategories":[
+  {
+    "id":71,
+    "title":"Bolsos",
+    "friendly_url": "bolsos"
+  },
+  {
+    "id":72,
+    "title":"Perfumes",
+    "friendly_url": "perfumes"
+  },
+  {
+    "id":73,
+    "title":"Relojes",
+    "friendly_url": "relojes"
+  },
+  {
+    "id":74,
+    "title":"Joyas",
+    "friendly_url": "joyas"
+  }
+]
+}
+]
