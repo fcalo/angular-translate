@@ -1,0 +1,126 @@
+{
+"status":1,
+"user_data":{
+  "name":"nombre",
+  "surname":"apellido",
+  "nif":"nif",
+  "telephone":"telefono",
+  "email":"email",
+  "address":"dirección",
+  "number":"9",
+  "stair":"2",
+  "floor":"1º",
+  "letter":"C",
+  "postal_code":"28000",
+  "country":"España",
+  "province":"Madrid",
+  "city":"Madrid",
+  "address_shipping":"dirección 2",
+  "number_shipping":"9",
+  "stair_shipping":"2",
+  "floor_shipping":"1º",
+  "letter_shipping":"C",
+  "postal_code_shipping":"28000",
+  "country_shipping":"España",
+  "province_shipping":"Madrid",
+  "city_shipping":"Madrid"
+  },
+"fiscal_data":[
+  {
+    "concept":"Compra",
+    "date":"18/8/2014",
+    "amount": 125,
+    "balance": 125
+  },
+  {
+    "concept":"Compra",
+    "date":"28/8/2014",
+    "amount": 100,
+    "balance": 225
+  },
+  {
+    "concept":"Retirada",
+    "date":"29/8/2014",
+    "amount": 50,
+    "balance": 175
+  }
+],
+"lotto_data":[
+  {
+    "id_lotto":"A-FGH-3456",
+    "equipment":"Iphone 5",
+    "date":"18/8/2014 18:30",
+    "participations":[
+      {
+        "number":42,
+        "rewarded":0
+      }
+    ]
+  },
+  {
+    "id_lotto":"A-FGH-3457",
+    "equipment":"Iphone 5",
+    "date":"18/8/2014 18:45",
+    "participations":[
+      {
+        "number":41,
+        "rewarded":0
+      },
+      {
+        "number":42,
+        "rewarded":1
+      }
+    ]
+  },
+  {
+    "id_lotto":"A-FGH-3458",
+    "equipment":"Iphone 5",
+    "date":"18/8/2014 19:10",
+    "participations":[
+      {
+        "number":42,
+        "rewarded":0
+      }
+    ]
+  },
+  {
+    "id_lotto":"C-FGH-3457",
+    "equipment":"Iphone 5",
+    "date":"19/8/2014 18:45",
+    "participations":[
+      {
+        "number":7,
+        "rewarded":0
+      },
+      {
+        "number":12,
+        "rewarded":1
+      },
+      {
+        "number":45,
+        "rewarded":0
+      }
+    ]
+  }
+],
+"order_data":[
+  {
+    "reference":"3456",
+    "date":"18/8/2014 18:31",
+    "price":275.99,
+    "status":2
+  },
+  {
+    "reference":"5456",
+    "date":"18/10/2014 18:31",
+    "price":179.99,
+    "status":1
+  },
+  {
+    "reference":"5458",
+    "date":"18/10/2014 19:38",
+    "price":54.99,
+    "status":0
+  }
+]
+}

@@ -1,0 +1,26 @@
+{
+"status":0,
+"error_msg":"mal mal",
+"inputs_failed":{
+  "username":true,
+  "password":true,
+  "repassword":true,
+  "name":true,
+  "surname":true,
+  "nif":true,
+  "telephone":true,
+  "email":true,
+  "address":true,
+  "number":true,
+  "postal_code":true,
+  "country":true,
+  "province":true,
+  "city":true,
+  "address_shipping":true,
+  "number_shipping":true,
+  "postal_code_shipping":true,
+  "country_shipping":true,
+  "province_shipping":true,
+  "city_shipping":true
+  }
+}
