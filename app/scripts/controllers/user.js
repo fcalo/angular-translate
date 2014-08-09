@@ -16,6 +16,8 @@ angular.module('wwwApp')
       'ngAnimate'
     ];
     
+    $scope.loadCountries();
+    
     $http({
       url: 'data_dev/getUser.json',
       data : "id_user=" + $routeParams.user_id,
@@ -24,6 +26,11 @@ angular.module('wwwApp')
       if (data.status){
         $scope.user= data['user_data']
         
+        $scope.loadProvinces(data['user_data']['country']);
+        $scope.loadCities(data['user_data']['province']);
+        
+        $scope.loadProvinces2(data['user_data']['country_shipping']);
+        $scope.loadCities2(data['user_data']['province_shipping']);
         
         var address_fields = ["address", "number", "stair", "floor", 
           "letter", "postal_code", "country", "province", "city"]

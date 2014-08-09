@@ -28,6 +28,10 @@ angular
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl'
       })
+      .when('/seller/register', {
+        templateUrl: 'views/register_seller.html',
+        controller: 'RegistersellerCtrl'
+      })
       .when('/reset', {
         templateUrl: 'views/reset.html',
         controller: 'ResetCtrl'
@@ -35,6 +39,10 @@ angular
       .when('/user/:user_id', {
         templateUrl: 'views/user.html',
         controller: 'UserCtrl'
+      })
+      .when('/seller/:user_id', {
+        templateUrl: 'views/seller.html',
+        controller: 'SellerCtrl'
       })
       .when('/category/:category_url', {
         templateUrl: 'views/category.html',

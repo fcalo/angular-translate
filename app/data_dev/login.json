@@ -3,5 +3,6 @@
 "error_msg":"",
 "id": 78,
 "name":"Pepe",
-"surname":"Pérez"
+"surname":"Pérez",
+"is_seller":1
 }

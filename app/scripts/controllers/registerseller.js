@@ -2,40 +2,35 @@
 
 /**
  * @ngdoc function
- * @name wwwApp.controller:RegisterCtrl
+ * @name wwwApp.controller:RegistersellerCtrl
  * @description
- * # RegisterCtrl
+ * # RegistersellerCtrl
  * Controller of the wwwApp
  */
 angular.module('wwwApp')
-  .controller('RegisterCtrl', function ($scope, $http, $filter) {
+  .controller('RegistersellerCtrl', function ($scope, $http, $filter) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
     
-      $scope.loadCountries();
+    $scope.loadCountries();
     
-      $scope.registerUser = function(register){
-        //~ $http({
-          //~ url:'data_dev/register.json',
-          //~ }).success(function(data) {
-          //~ alert(data.status);
-        //~ });
+    $scope.registerSeller = function(register){
         
         if(!$scope.register || !$scope.register.term_of_use){
           $scope.register_error = $filter('translate')("Debe aceptar los terminos de uso");
           return false;
         }
-        
-        
+      
+      
         var params = []
         var k;
         for (k in register){
           params.push(k + "=" + register[k])
         }
-        
+                
         $http({
           url: 'data_dev/register_seller.json',
           data : params.join("&"),
@@ -46,15 +41,13 @@ angular.module('wwwApp')
           }else{
             $scope.register_error = data.error_msg;
             $scope.error = data.inputs_failed;
-            //~ for (input in data.inputs_failed){
-              //~ $("#" + data.inputs_failed[input]).parent().parent().addClass("has-error");
-            //~ }
           }
         }).error(function(){
             alert("Ha ocurrido algún error al realizar el registro!.");
         })
      }
 
+    
     
     
   });

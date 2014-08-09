@@ -5,8 +5,8 @@
   <ul class="nav nav-tabs" role="tablist" id="user-tab">
     <li class="active"><a href="user-data" class="translate">{{ "Datos personales" | translate }}</a></li>
     <li><a href="fiscal" class="translate">{{ "Datos economicos" | translate }}</a></li>
-    <li><a href="lotto" class="translate">{{ "Sorteos" | translate }}</a></li>
-    <li><a href="history" class="translate">{{ "Historial de pedidos" | translate }}</a></li>
+    <li><a href="lotto-seller" class="translate">{{ "Equipos - Sorteos" | translate }}</a></li>
+    <li><a href="rating" class="translate">{{ "Valoraciones" | translate }}</a></li>
   </ul>
 
   <div class="tab-content">
@@ -15,7 +15,12 @@
        
         <h2 class="translate">{{ "Datos personales" || translate }}</h2>
         <div class="c2">
-          <div class="form-group" ng-class="{'has-error has-feedback': error['repassword']}">
+          <div class="form-group" ng-class="{'has-error has-feedback': error['tradename']}">
+            <label for="tradename" class="translate">{{ "Nombre Comercial" | translate }}</label>
+            <input type="text" class="form-control" id="tradename" placeholder='{{ "Introduzca nombre comercial" | translate }}' ng-model="user.tradename"/>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['tradename']"></span>
+          </div>
+          <div class="form-group" ng-class="{'has-error has-feedback': error['name']}">
             <label for="name" class="translate">{{ "Nombre" | translate }}</label>
             <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}' ng-model="user.name"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['name']"></span>
@@ -25,13 +30,14 @@
             <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}' ng-model="user.surname"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['surname']"></span>
           </div>
+          
+        </div>
+        <div class="c2">
           <div class="form-group" ng-class="{'has-error has-feedback': error['nif']}">
             <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
             <input type="text" class="form-control" id="nif" placeholder='{{ "Introduzca documento" | translate }}' ng-model="user.nif"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['nif']"></span>
           </div>
-        </div>
-        <div class="c2">
           <div class="form-group" ng-class="{'has-error has-feedback': error['telephone']}">
             <label for="telephone" class="translate">{{ "Teléfono" | translate }}</label>
             <input type="text" class="form-control" id="telephone" placeholder='{{ "Introduzca teléfono" | translate }}' ng-model="user.telephone"/>
@@ -172,81 +178,66 @@
           
         </tbody>
       </table>
-      <div class="col-md-6">
-        <form class="form-horizontal" role="form">
-            <fieldset>
-              <div class="form-group">
-                <label class="col-sm-4 control-label">{{ "Pago" | translate }}</label>
-                <div class="col-sm-8">
-                  <label class="radio">
-                    <input type="radio" name="method" id="method1" value="paypal"/> PayPal
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="method" id="method2" value="credit_card"/> {{ "Tarjeta de credito" | translate }}
-                  </label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-4 control-label">{{ "Importe" | translate }}</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="amount" placeholder="Importe"/>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-        <button type="button" class="btn btn-warning translate">{{ "Ingresar fondos" | translate }}</button>
-      </div>
-      <div class="col-md-6 retire">
-        <form class="form-horizontal" role="form">
-            <fieldset>
-              <div class="form-group">
-                <label class="col-sm-4 control-label">{{ "Saldo" | translate }}</label>
-                <div class="col-sm-8">
-                  <p class="form-control-static">200€</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-4 control-label">{{ "Importe" | translate }}</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="amount" placeholder="Importe"/>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-        <button type="button" class="btn btn-primary translate">{{ "Retirar fondos" | translate }}</button>
-      </div>
+      <button type="button" data-toggle="modal" data-target="#retire-modal" class="btn btn-primary translate">{{ "Retirar fondos" | translate }}</button>
       <span class="clear"></span>
     </div>
-    <div class="tab-pane" id="lotto">
-      <h2 class="translate">{{ "Sorteos" || translate }}</h2>
+    <div class="tab-pane" id="lotto-seller">
+      <h2 class="translate">{{ "Datos de Equipos - Sorteos asociados del Vendedor: " || translate }}<b>{{ user_login.name }} {{ user_login.surname }}</b></h2>
+      <div>{{ id_lotto }}.</div>
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>{{ "Sorteo" | translate }}</th>
             <th>{{ "Equipo" | translate }}</th>
+            <th>{{ "Sorteo" | translate }}</th>
             <th>{{ "Fecha" | translate }}</th>
-            <th class="text-center">{{ "Papeleta" | translate }}</th>
-            <th></th>
+            <th>{{ "Papeletas" | translate }}</th>
+            <th>{{ "Vendidas" | translate }}</th>
             <th class="text-center">{{ "Resultado" | translate }}</th>
+            <th class="text-center">Detalle sorteo</th>
+            <th class="text-center">Ver equipo</th>
           </tr>
         </thead>
-        <tbody id="lotto-body">
-        </tbody>
+        <tbody id="lotto-seller-body">
       </table>
+      <button type="submit" class="btn btn-primary translate" ng-click="saveUser(user)">{{ "Añadir equipo" | translate }}</button>
+      <div class="clearfix"></div>
     </div>
-    <div class="tab-pane" id="history">
-      <h2 class="translate">{{ "Historial de pedidos" || translate }}</h2>
+    <div class="tab-pane" id="rating">
+      <div class="row">
+        <h2 class="translate col-md-4">{{ "Valoración del suministrador" || translate }}</h2>
+        <div class="rating-info">
+          <fieldset>
+              <div class="form-group col-md-3 ">
+                <label class="control-label">{{ "Valoraciones:" | translate }}</label>
+                <span>127</span>
+              </div>
+              <div class="form-group col-md-4">
+                <label class="control-label">{{ "Puntuación media:" | translate }}</label>
+                <span>4,7</span>
+              </div>
+          </fieldset>
+        </div>
+      </div>
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>{{ "Referencia de Pedido" | translate }}</th>
-            <th>{{ "Fecha" | translate }}</th>
-            <th>{{ "Precio total" | translate }}</th>
-            <th>{{ "Estado" | translate }}</th>
+            <th>{{ "Equipo / Sorteo" | translate }}</th>
+            <th>{{ "Usuario" | translate }}</th>
+            <th class="text-center">{{ "Nota" | translate }}</th>
+            <th>{{ "Comentario" | translate }}</th>
+            <th>{{ "Respuesta" | translate }}</th>
+            <th class="text-center">{{ "Responder" | translate }}</th>
           </tr>
         </thead>
-        <tbody id="order-body">
-          
+        <tbody id="ratings-body">
+          <tr ng-repeat="i in [1, 2, 3, 4, 5]">
+            <td>Iphone - CBG-4568</td>
+            <td>Pepe</td>
+            <td class="text-center">4</td>
+            <td>Lorem ipsum dolor sit amet...</td>
+            <td>Lorem ipsum dolor sit amet...</td>
+            <td class="text-center"><a data-toggle="modal" data-target="#response-modal"><span class="glyphicon glyphicon-comment"></span></a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -271,39 +262,44 @@
   </div>
 </div>
 
-<div class="modal fade" id="deposite-modal" tabindex="-1" role="dialog" aria-labelledby="retire-label" aria-hidden="true">
+<div class="modal fade" id="detail-modal" tabindex="-1" role="dialog" aria-labelledby="detail-label" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="retire-label"><span class="glyphicon glyphicon-transfer"></span> {{ "Ingresar fondos" || translate }} </h4>
+        <h4 class="modal-title" id="detail-label"><span class="glyphicon glyphicon-time"></span> {{ "Detalle sorteo" || translate }} </h4>
       </div>
-        <div class="modal-body">
-          <form class="form-horizontal" role="form">
-            <fieldset>
-              <div class="form-group">
-                <label class="col-sm-4 control-label">{{ "Pago" | translate }}</label>
-                <div class="col-sm-8">
-                  <label class="radio">
-                    <input type="radio" name="method" id="method1" value="paypal"/> PayPal
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="method" id="method2" value="credit_card"/> {{ "Tarjeta de credito" | translate }}
-                  </label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-4 control-label">{{ "Importe" | translate }}</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="amount" placeholder="Importe"/>
-                </div>
-              </div>
-            </fieldset>
-          </form>
+      <div class="modal-body">
+        <fieldset>
+          <div class="form-group row">
+            <label class="col-sm-8 control-label">{{ "Papeletas totales" | translate }}</label>
+            <div class="col-sm-4">
+              <p class="form-control-static">{{ detail_ballots }}</p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-8 control-label">{{ "Papeletas vendidas" | translate }}</label>
+            <div class="col-sm-4">
+              <p class="form-control-static">{{ detail_sold }}</p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-8 control-label">{{ "Porc. Reserva" | translate }}</label>
+            <div class="col-sm-4">
+              <p class="form-control-static">{{ detail_per_reserved }}%</p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-8 control-label">{{ "Precio papeleta" | translate }}</label>
+            <div class="col-sm-4">
+              <p class="form-control-static">{{ detail_price }}€</p>
+            </div>
+          </div>
+        </fieldset>
+          
 		  </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" || translate }} </button>
-        <button type="button" class="btn btn-primary" id="btn_login"> {{ "Continuar" || translate }} </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cerrar" || translate }} </button>
       </div>
     </div>
   </div>
@@ -337,6 +333,31 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" || translate }} </button>
         <button type="button" class="btn btn-primary" id="btn_login"> {{ "Continuar" || translate }} </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="response-modal" tabindex="-1" role="dialog" aria-labelledby="response-label" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="response-label"><span class="glyphicon glyphicon-comment"></span> {{ "Responder" || translate }} </h4>
+      </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <fieldset>
+              <div>
+                <label for="message">{{ "Respuesta" || translate }}</label>
+                <textarea placeholder='{{ "Respuesta" || translate }}' id="response" class="form-control" rows="5"></textarea>
+              </div>
+            </fieldset>
+          </form>
+		  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" || translate }} </button>
+        <button type="button" class="btn btn-primary" > {{ "Responder" || translate }} </button>
       </div>
     </div>
   </div>

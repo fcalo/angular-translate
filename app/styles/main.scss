@@ -104,7 +104,7 @@ a{
 			
 		}
 		.seller{
-			button{
+			button, a.btn{
 				width:80%;
 				float:none;
 			}
@@ -354,6 +354,11 @@ a{
             #user-tab li{
               cursor:pointer;
             }
+            #fiscal{
+              .retire{
+                padding-top:20px;
+              }
+            }
             #lotto{
               table{
                 .label{
@@ -376,6 +381,12 @@ a{
                 }
               }
             }
+            #rating{
+              .rating-info{
+                margin-top:20px;
+                line-height:26px;
+              }
+            }
                 
         }
         .contact{
@@ -385,40 +396,51 @@ a{
           }
         }
 		.list-item{
-            h2{
-                font-weight:bold;
-                font-size:1.4em;
-            }
+      h2{
+          font-weight:bold;
+          font-size:1.4em;
+      }
 			border:1px solid $gray-light;
 			margin:5px 0;
 			img{
 				float:left;
 				height:200px;
 			}
-            .num-loto{
-                font-weight:bold;
-                font-size:1.1em;
+      .num-loto, .lotto-data{
+          font-weight:bold;
+          font-size:1.1em;
+          .progress-row{
+            margin-top:12px;
+            span{
+              padding-right:8px;
             }
-            .list-item-right{
-                float:right;
-                padding:10px;
-                height:180px;
-                text-align:right;
-                .btn{
-                    margin-top:10px;
-                    width:100px;
-                }
-                .price{
-                    text-align:right;
-                    font-size:1.5em;
-                    color:$brand-danger;
-                    font-weight:bold;
-                    span{
-						font-size:0.4em;
-                    }
-                }
-            }
-		}
+          }
+      }
+      .list-item-right{
+          float:right;
+          padding:10px;
+          height:180px;
+          text-align:right;
+          .btn{
+              margin-top:10px;
+              width:100px;
+          }
+          .price{
+              text-align:right;
+              font-size:1.5em;
+              color:$brand-danger;
+              font-weight:bold;
+              span{
+                font-size:0.4em;
+              }
+          }
+      }
+      .list-item-right-large{
+          .btn{
+              width:200px;
+          }
+      }
+    }
         .list-item:hover{
             background-color:$gray-lighter;
         }

@@ -1,6 +1,7 @@
 {
 "status":1,
 "user_data":{
+  "tradename":"comercio",
   "name":"nombre",
   "surname":"apellido",
   "nif":"nif",
@@ -12,18 +13,18 @@
   "floor":"1º",
   "letter":"C",
   "postal_code":"28000",
-  "country":"España",
-  "province":"Madrid",
-  "city":"Madrid",
+  "country":1,
+  "province":11,
+  "city":111,
   "address_shipping":"dirección 2",
   "number_shipping":"9",
   "stair_shipping":"2",
   "floor_shipping":"1º",
   "letter_shipping":"C",
   "postal_code_shipping":"28000",
-  "country_shipping":"España",
-  "province_shipping":"Madrid",
-  "city_shipping":"Madrid"
+  "country_shipping":1,
+  "province_shipping":11,
+  "city_shipping":112
   },
 "fiscal_data":[
   {
@@ -121,6 +122,28 @@
     "date":"18/10/2014 19:38",
     "price":54.99,
     "status":0
+  }
+],
+"lotto_seller_data":[
+  {
+    "id_lotto":"A-FGH-3456",
+    "equipment":"Iphone 5",
+    "date":"18/8/2014 18:30",
+    "ballots":1000,
+    "sold":565,
+    "status":1,
+    "per_reserved":40,
+    "price":1
+  },
+  {
+    "id_lotto":"A-FGL-3456",
+    "equipment":"Samsung S4",
+    "date":"19/8/2014 18:30",
+    "ballots":78,
+    "sold":0,
+    "status":0,
+    "per_reserved":10,
+    "price":2
   }
 ]
 }

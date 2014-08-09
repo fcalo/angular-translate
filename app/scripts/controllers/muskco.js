@@ -86,6 +86,7 @@ angular.module('wwwApp')
         data : "username=" + user.username +"&password=" + user.password
       }).success(function(data){
         if (data.status){
+          $scope.user_type = data['is_seller'] ? "seller" : "user";
           $scope.login_ok = true
           $scope.user_login = data;
           setTimeout("$('#login-modal').modal('hide');",500);
@@ -115,6 +116,47 @@ angular.module('wwwApp')
         }
       });
     }
+    
+    $scope.loadCountries = function(){
+      $http({
+        url: 'data_dev/countries.json'
+      }).success(function(data){
+         $scope.countries = data;
+      });
+    }
+    
+    $scope.provinces = []
+    function _loadProvinces(id_country, index){
+      $http({
+        url: 'data_dev/provinces.json',
+        data:{"id_country":id_country}
+      }).success(function(data){
+        $scope.provinces[index] = data;
+      });
+    }
+    $scope.loadProvinces = function(id_country){
+      return _loadProvinces(id_country, 0);
+    }
+    $scope.loadProvinces2 = function(id_country){
+      return _loadProvinces(id_country, 1);
+    }
+      
+    $scope.cities = []
+    function _loadCities(id_province, index){
+      $http({
+        url: 'data_dev/cities.json',
+        data:{"id_province":id_province}
+      }).success(function(data){
+        $scope.cities[index] = data;
+      });
+    }
+    $scope.loadCities = function(id_province){
+      return _loadCities(id_province, 0);
+    }
+    $scope.loadCities2 = function(id_province){
+      return _loadCities(id_province, 1);
+    }
+      
     
 		
 	$('#language-selector li a').click(function(){

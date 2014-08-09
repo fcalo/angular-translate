@@ -28,7 +28,12 @@
     </div>
     <h2 class="translate">{{ "Datos personales" || translate }}</h2>
     <div class="c2">
-      <div class="form-group" ng-class="{'has-error has-feedback': error['repassword']}">
+      <div class="form-group" ng-class="{'has-error has-feedback': error['tradename']}">
+        <label for="tradename" class="translate">{{ "Nombre comercial" | translate }}</label>
+        <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre comercial" | translate }}' ng-model="register.tradename"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['tradename']"></span>
+      </div>
+      <div class="form-group" ng-class="{'has-error has-feedback': error['name']}">
         <label for="name" class="translate">{{ "Nombre" | translate }}</label>
         <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}' ng-model="register.name"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['name']"></span>
@@ -38,13 +43,13 @@
         <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}' ng-model="register.surname"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['surname']"></span>
       </div>
+    </div>
+    <div class="c2">
       <div class="form-group" ng-class="{'has-error has-feedback': error['nif']}">
         <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
         <input type="text" class="form-control" id="nif" placeholder='{{ "Introduzca documento" | translate }}' ng-model="register.nif"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['nif']"></span>
       </div>
-    </div>
-    <div class="c2">
       <div class="form-group" ng-class="{'has-error has-feedback': error['telephone']}">
         <label for="telephone" class="translate">{{ "Teléfono" | translate }}</label>
         <input type="text" class="form-control" id="telephone" placeholder='{{ "Introduzca teléfono" | translate }}' ng-model="register.telephone"/>
@@ -92,17 +97,17 @@
     <div class="c2">
       <div class="form-group" ng-class="{'has-error has-feedback': error['country']}">
         <label for="country" class="translate">{{ "País" | translate }}</label>
-        <select class="form-control" id="country"  ng-model="register.country" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces(register.country)"> </select>
+        <select class="form-control" id="country"  ng-model="user.country" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces(user.country)"> </select>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country']"></span>
       </div>
       <div class="form-group" ng-class="{'has-error has-feedback': error['province']}">
         <label for="province" class="translate">{{ "Provincia" | translate }}</label>
-        <select class="form-control" id="province"  ng-model="register.province" ng-options="province.id as province.province for province in provinces[0]" ng-change="loadCities(register.province)" ></select>
+        <select class="form-control" id="province"  ng-model="user.province" ng-options="province.id as province.province for province in provinces[0]" ng-change="loadCities(user.province)" ></select>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
       </div>
       <div class="form-group" ng-class="{'has-error has-feedback': error['city']}">
         <label for="city" class="translate">{{ "Ciudad" | translate }}</label>
-        <select class="form-control" id="city"  ng-model="register.city" ng-options="city.id as city.city for city in cities[0]"></select>
+        <select class="form-control" id="city"  ng-model="user.city" ng-options="city.id as city.city for city in cities[0]"></select>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city']"></span>
       </div>
     </div>
@@ -146,25 +151,24 @@
       <div class="c2">
         <div class="form-group" ng-class="{'has-error has-feedback': error['country_shipping']}">
           <label for="country_shipping" class="translate">{{ "País" | translate }}</label>
-          <select class="form-control" id="country_shipping"  ng-model="register.country_shipping" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces2(register.country_shipping)"> </select>
+          <select class="form-control" id="country_shipping"  ng-model="user.country_shipping" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces2(user.country_shipping)"> </select>
           <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country_shipping']"></span>
         </div>
         <div class="form-group" ng-class="{'has-error has-feedback': error['province_shipping']}">
           <label for="province_shipping" class="translate">{{ "Provincia" | translate }}</label>
-          <select class="form-control" id="province_shipping"  ng-model="register.province_shipping" ng-options="province.id as province.province for province in provinces[1]" ng-change="loadCities2(register.province_shipping)" ></select>
+          <select class="form-control" id="province_shipping"  ng-model="user.province_shipping" ng-options="province.id as province.province for province in provinces[1]" ng-change="loadCities2(user.province_shipping)" ></select>
           <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province_shipping']"></span>
         </div>
         <div class="form-group" ng-class="{'has-error has-feedback': error['city_shipping']}">
           <label for="city_shipping" class="translate">{{ "Ciudad" | translate }}</label>
-          <select class="form-control" id="city_shipping"  ng-model="register.city_shipping" ng-options="city.id as city.city for city in cities[1]"></select>
+          <select class="form-control" id="city_shipping"  ng-model="user.city_shipping" ng-options="city.id as city.city for city in cities[1]"></select>
           <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city_shipping']"></span>
         </div>
       </div>
     </div>
     <span class="clear"></span>
     
-    
-    <h2 >{{ "Condiciones de uso" | translate }}</h2>
+        <h2 >{{ "Condiciones de uso" | translate }}</h2>
     <div class="form-group">
       <textarea class="col-md-12" rows="10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum convallis magna eget elementum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Phasellus ac elit eu velit interdum volutpat vitae vel orci. Nulla pellentesque sapien quis molestie elementum. Ut et est in urna ullamcorper euismod. Aliquam nibh ante, elementum ut ornare eu, dapibus eu metus. Sed vitae tempor lectus. Duis vulputate, ante vel hendrerit aliquet, nisi tortor interdum nibh, quis rhoncus velit nisi non dolor. Integer accumsan felis id odio imperdiet molestie. Morbi blandit, diam at volutpat porttitor, arcu erat aliquet odio, sit amet tincidunt lacus nulla in lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed dapibus, massa venenatis aliquet mollis, nisi odio semper massa, vel tempor dui enim quis sem. Nunc aliquet risus vitae nulla laoreet tempor. Vestibulum rhoncus iaculis ultrices. Fusce pharetra lobortis sem nec pellentesque.
 
@@ -180,7 +184,8 @@ Curabitur at dignissim velit. Nulla eu lectus in ipsum viverra tempor. Cras arcu
       <input type="checkbox" id="term_of_use" ng-model="register.term_of_use" /> <label for="term_of_use" > {{ "Aceptar condiciones de uso" | translate }} </label>
     </div>
     <div class="alert alert-danger" ng-show="register_error">{{ register_error }}</div>
-    <button type="button" ng-click="registerUser(register)" class="btn btn-primary translate">{{ "Registrarse" | translate }}</button>
+    
+    <button type="button" ng-click="registerSeller(register)" class="btn btn-primary translate">{{ "Registrarse" | translate }}</button>
     <span class="clear"></span>
   </form>
 </div>
