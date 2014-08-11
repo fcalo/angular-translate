@@ -1,0 +1,26 @@
+
+
+<h1 class="translate"> {{ "Calificación suministradores" | translate }}</h1>
+
+
+<div class="work-area rating">
+  <h2>{{ "Suministrador" || translate }}: <b>Tienda el remolque</b></h2>
+  
+  <div class="col-md-2 text-right">{{ "Valoración" || translate }}: </div><div class="col-md-10" id="rating">
+         <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+  </div> 
+  <div class="col-md-2 text-right">{{ "Comentario" || translate }}: </div><div class="col-md-10"> <textarea id="comment" name="comment" rows="5"></textarea></div>
+  <div class="col-md-12 text-left"> <button type="submit" class="btn btn-primary translate pull-left" >{{ "Guardar" | translate }}</button></div>
+  <div class="col-md-12">{{ "Comentario del suministrador" || translate }}: </div>
+  <div class="col-md-12"> <textarea id="response" name="respnse" rows="5"></textarea></div>
+  <div class="col-md-12 text-left"> <button type="submit" class="btn btn-primary translate pull-left" >{{ "Guardar" | translate }}</button></div>
+  <div class="clearfix"></div>
+</div>
+
+
+
+
+
+
+
+

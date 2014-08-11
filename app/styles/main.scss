@@ -395,6 +395,16 @@ a{
             margin:50px 100px 0 0;
           }
         }
+        .rating{
+          button{
+            margin:5px 0;
+          }
+          i{
+              font-size: 1.5em;
+              color:$brand-warning;
+          }
+          textarea{width:100%}
+        }
 		.list-item{
       h2{
           font-weight:bold;

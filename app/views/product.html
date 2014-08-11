@@ -1,0 +1,44 @@
+<h1 class="translate"> {{ "Detalle de Equipo - Sorteo" | translate }}</h1>
+
+
+<div class="work-area product">
+  <div class="form-group" ng-class="{'has-error has-feedback': error['country']}">
+    <label for="country" class="translate">{{ "País" | translate }}</label>
+    <select class="form-control" id="country"  ng-model="user.country" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces(user.country)"> </select>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country']"></span>
+  </div>
+  <div class="form-group" ng-class="{'has-error has-feedback': error['province']}">
+    <label for="province" class="translate">{{ "Provincia" | translate }}</label>
+    <select class="form-control" id="province"  ng-model="user.province" ng-options="province.id as province.province for province in provinces[0]" ng-change="loadCities(user.province)" ></select>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
+  </div>
+  <div class="form-group" ng-class="{'has-error has-feedback': error['city']}">
+    <label for="city" class="translate">{{ "Ciudad" | translate }}</label>
+    <select class="form-control" id="city"  ng-model="user.city" ng-options="city.id as city.city for city in cities[0]"></select>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city']"></span>
+  </div>
+  <div class="form-group" ng-class="{'has-error has-feedback': error['repassword']}">
+    <label for="name" class="translate">{{ "Nombre" | translate }}</label>
+    <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}' ng-model="user.name"/>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['name']"></span>
+  </div>
+  <div class="form-group" ng-class="{'has-error has-feedback': error['surname']}">
+    <label for="surname" class="translate">{{ "Apellidos" | translate }}</label>
+    <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}' ng-model="user.surname"/>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['surname']"></span>
+  </div>
+  <div class="form-group" ng-class="{'has-error has-feedback': error['nif']}">
+    <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
+    <input type="text" class="form-control" id="nif" placeholder='{{ "Introduzca documento" | translate }}' ng-model="user.nif"/>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['nif']"></span>
+  </div>
+  <div class="clearfix"></div>
+  <div class="alert alert-danger" ng-show="save_error">{{ save_error }}</div>
+  <div class="alert alert-success" ng-show="save_ok">{{ "Datos guardados correctamente" || translate }}</div>
+  <button type="submit" class="btn btn-warning translate" >{{ "Volver" | translate }}</button>
+  <button type="submit" class="btn btn-primary translate" >{{ "Guardar" | translate }}</button>
+  <button type="button" class="btn btn-danger translate">{{ "Eliminar" | translate }}</button>
+  <div class="clearfix"></div>
+</div>
+
+

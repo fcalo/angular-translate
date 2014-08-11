@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider, $translateProvider) {
     $routeProvider
@@ -43,6 +44,14 @@ angular
       .when('/seller/:user_id', {
         templateUrl: 'views/seller.html',
         controller: 'SellerCtrl'
+      })
+      .when('/product/:product_id', {
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
+      })
+      .when('/rating/:order_id', {
+        templateUrl: 'views/rating.html',
+        controller: 'RatingCtrl'
       })
       .when('/category/:category_url', {
         templateUrl: 'views/category.html',

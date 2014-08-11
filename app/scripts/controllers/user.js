@@ -8,7 +8,7 @@
  * Controller of the wwwApp
  */
 angular.module('wwwApp')
-  .controller('UserCtrl', function ($scope, $routeParams, $http, $compile) {
+  .controller('UserCtrl', function ($scope, $routeParams, $http, $compile, $filter) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -79,6 +79,10 @@ angular.module('wwwApp')
           var first = true;
           for (p in participations){
             var participation = participations[p];
+            if (multiple && first){
+              html_participations += '<div  class="text-center ' + lotto['id_lotto'] + '">';
+              html_labels += '<div class="' + lotto['id_lotto'] + '">';
+            }
             if (!first){
               html_participations += "<span>"
             }
@@ -87,10 +91,7 @@ angular.module('wwwApp')
             if (!first){
               html_participations += "</span>"
             }
-            if (multiple && first){
-              html_participations += '<div  class="text-center ' + lotto['id_lotto'] + '">';
-              html_labels += '<div class="' + lotto['id_lotto'] + '">';
-            }
+            
             first = false
           }
           if (multiple){
@@ -102,7 +103,7 @@ angular.module('wwwApp')
           html += html_participations;
           if (multiple){
             $scope.expand_dir[lotto['id_lotto']] = "down";
-            $scope.expand_label[lotto['id_lotto']] = "Ver Todas";
+            $scope.expand_label[lotto['id_lotto']] = $filter("translate")("Ver Todas");
             html += '<td><a class="text-center" \
               ng-click="expand_lotto(\'' + lotto['id_lotto']  + '\')" \
               ng-data="expand_label"> {{ expand_label[\'' + lotto['id_lotto'] + '\'] }} \
@@ -136,10 +137,16 @@ angular.module('wwwApp')
         for (i in data['order_data']){
           var order = data['order_data'][i];
           var html = "<tr><td>" + order['reference'] +"</td>";
+          html += "<td>" + order['equipment'] + "/" + order['id_lotto'] + "</td>";
           html += "<td>" + order['date'] +"</td><td>";
           html += order['price'] +" </td><td>";
           html += "<span class='label label-" + status_label[order['status']] + "'>";
-          html += status[order['status']] + "</span></td></tr>";
+          html += status[order['status']] + "</span></td>";
+          html += "<td class='text-center'>"; 
+          if (order['status'] == 2){
+            html += "<a href= '#/rating/" + order['reference'] + "'><span class='glyphicon glyphicon-star'></span></a>";
+          }
+          html += "</span></td></tr>";
           $("#order-body").append(html);
         }
         

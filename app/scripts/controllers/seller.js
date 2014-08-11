@@ -68,14 +68,14 @@ angular.module('wwwApp')
         $scope.detail = {}
         for (i in data['lotto_seller_data']){
           var lotto = data['lotto_seller_data'][i];
-          var html = "<tr><td>" + lotto['equipment'] +"</td>";
+          var html = "<tr><td>" + lotto['product'] +"</td>";
           html += "<td>" + lotto['id_lotto'] +"</td>";
           html += "<td>" + lotto['date'] +"</td>";
           html += "<td>" + lotto['ballots'] +" </td>";
           html += "<td>" + lotto['sold'] +"</td>";
           html += '<td><span class="label label-' + status_label[lotto["status"]] + '">' + status[lotto["status"]] + '</span></td>';
           html += '<td class="text-center"><a data-toggle="modal" data-target="#detail-modal" ng-click="openDetail(\'' + lotto["id_lotto"] + '\')"><span class="glyphicon glyphicon-time"></span></a></td>';
-          html += '<td class="text-center"><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td></tr>';
+          html += '<td class="text-center"><a href="#/product/' + lotto['id_lotto'] +'"><span class="glyphicon glyphicon-eye-open"></span></a></td></tr>';
           
           $scope.detail[lotto["id_lotto"]]=lotto;
           

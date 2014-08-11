@@ -49,7 +49,7 @@
 "lotto_data":[
   {
     "id_lotto":"A-FGH-3456",
-    "equipment":"Iphone 5",
+    "product":"Iphone 5",
     "date":"18/8/2014 18:30",
     "participations":[
       {
@@ -60,7 +60,7 @@
   },
   {
     "id_lotto":"A-FGH-3457",
-    "equipment":"Iphone 5",
+    "product":"Iphone 5",
     "date":"18/8/2014 18:45",
     "participations":[
       {
@@ -75,7 +75,7 @@
   },
   {
     "id_lotto":"A-FGH-3458",
-    "equipment":"Iphone 5",
+    "product":"Iphone 5",
     "date":"18/8/2014 19:10",
     "participations":[
       {
@@ -86,7 +86,7 @@
   },
   {
     "id_lotto":"C-FGH-3457",
-    "equipment":"Iphone 5",
+    "product":"Iphone 5",
     "date":"19/8/2014 18:45",
     "participations":[
       {
@@ -107,18 +107,24 @@
 "order_data":[
   {
     "reference":"3456",
+    "id_lotto":"A-FGH-3456",
+    "product":"Iphone 5",
     "date":"18/8/2014 18:31",
     "price":275.99,
     "status":2
   },
   {
     "reference":"5456",
+    "id_lotto":"A-FGL-5456",
+    "product":"Samsung",
     "date":"18/10/2014 18:31",
     "price":179.99,
     "status":1
   },
   {
     "reference":"5458",
+    "id_lotto":"A-FGL-5458",
+    "product":"Sony",
     "date":"18/10/2014 19:38",
     "price":54.99,
     "status":0
@@ -127,7 +133,7 @@
 "lotto_seller_data":[
   {
     "id_lotto":"A-FGH-3456",
-    "equipment":"Iphone 5",
+    "product":"Iphone 5",
     "date":"18/8/2014 18:30",
     "ballots":1000,
     "sold":565,
@@ -137,7 +143,7 @@
   },
   {
     "id_lotto":"A-FGL-3456",
-    "equipment":"Samsung S4",
+    "product":"Samsung S4",
     "date":"19/8/2014 18:30",
     "ballots":78,
     "sold":0,
