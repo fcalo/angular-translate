@@ -5,6 +5,16 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 $fa-font-path: "/bower_components/font-awesome/fonts";
 @import "font-awesome/scss/font-awesome";
 
+
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /*
 * {
   -webkit-border-radius: 0;
@@ -25,6 +35,10 @@ a{
 }
 .main{
 	padding-bottom:30px;
+}
+
+table tr:last-child td{
+   border-bottom: 2px solid #ddd;
 }
 
 /*
@@ -357,6 +371,7 @@ a{
             #fiscal{
               .retire{
                 padding-top:20px;
+                border-left:1px solid $gray-lighter;
               }
             }
             #lotto{
@@ -387,6 +402,7 @@ a{
                 line-height:26px;
               }
             }
+            
                 
         }
         .contact{
@@ -404,6 +420,89 @@ a{
               color:$brand-warning;
           }
           textarea{width:100%}
+        }
+        .draw{
+          .status{
+            .panel-body{
+              text-align:center;
+              font-size:2em;
+              .spin{
+                -webkit-animation: infinite-spinning 5s infinite; /* Safari 4+ */
+                -moz-animation:    infinite-spinning 5s infinite; /* Fx 5+ */
+                -o-animation:      infinite-spinning 5s infinite; /* Opera 12+ */
+                animation:         infinite-spinning 5s infinite; /* IE 10+, Fx 29+ */
+              }
+            }
+          }
+          .user-rewarded{
+            i{
+              font-size:71px;
+            }
+          }
+          .info{
+            font-size:0.9em;
+            span{
+              font-weight:bold;
+            }
+          }
+          
+          .image-area{
+            border-left:1px solid $gray-lighter;
+            ul{
+                padding:0;
+                margin:0;
+                white-space:nowrap;
+                li {
+                    list-style:none;
+                    display:inline-block;
+                }
+            }
+            .mainimageshell {
+                float:left;
+                width:400px;
+                padding:10px;
+                .viewwindow {
+                    width:400px;
+                    height:400px;
+                    overflow: hidden;
+                    position:relative;
+                    .fullsizelist{
+                        position:absolute;
+                        top:0;
+                        left:0;
+                        transition:  left .8s ease;
+                        -ms-transition:  left .8s ease;
+                        -o-transition:  left .8s ease;
+                        -webkit-transition:  left .8s ease;
+                        -moz-transition:  left .8s ease;
+                        .large {
+                            width:405px;
+                        }
+                    }
+
+                }
+            }
+
+            .thumbsshell {
+                width:400px;
+                padding:10px;
+                border-radius:8px;
+                float:left;
+                .thumbswrapper {
+                    overflow: hidden;
+                    width:394px;
+                    height:60px;
+                    margin:20px auto;
+                    float:left;
+                    height:60px;
+                    .thumbnail {
+                        height:50px;
+                        padding:2px;
+                    }
+                }
+            }
+          }
+
         }
 		.list-item{
       h2{
@@ -467,3 +566,5 @@ a{
 		margin:0;
 	}
 }
+
+

@@ -2,42 +2,174 @@
 
 
 <div class="work-area product">
-  <div class="form-group" ng-class="{'has-error has-feedback': error['country']}">
-    <label for="country" class="translate">{{ "País" | translate }}</label>
-    <select class="form-control" id="country"  ng-model="user.country" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces(user.country)"> </select>
-    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country']"></span>
-  </div>
-  <div class="form-group" ng-class="{'has-error has-feedback': error['province']}">
-    <label for="province" class="translate">{{ "Provincia" | translate }}</label>
-    <select class="form-control" id="province"  ng-model="user.province" ng-options="province.id as province.province for province in provinces[0]" ng-change="loadCities(user.province)" ></select>
-    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
-  </div>
-  <div class="form-group" ng-class="{'has-error has-feedback': error['city']}">
-    <label for="city" class="translate">{{ "Ciudad" | translate }}</label>
-    <select class="form-control" id="city"  ng-model="user.city" ng-options="city.id as city.city for city in cities[0]"></select>
-    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city']"></span>
-  </div>
-  <div class="form-group" ng-class="{'has-error has-feedback': error['repassword']}">
-    <label for="name" class="translate">{{ "Nombre" | translate }}</label>
-    <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}' ng-model="user.name"/>
-    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['name']"></span>
-  </div>
-  <div class="form-group" ng-class="{'has-error has-feedback': error['surname']}">
-    <label for="surname" class="translate">{{ "Apellidos" | translate }}</label>
-    <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}' ng-model="user.surname"/>
-    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['surname']"></span>
-  </div>
-  <div class="form-group" ng-class="{'has-error has-feedback': error['nif']}">
-    <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
-    <input type="text" class="form-control" id="nif" placeholder='{{ "Introduzca documento" | translate }}' ng-model="user.nif"/>
-    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['nif']"></span>
-  </div>
-  <div class="clearfix"></div>
+  <fieldset>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['category']}">
+        <label for="category" class="translate">{{ "Categoría" | translate }}</label>
+        <select class="form-control" id="category"  ng-model="product.category" ng-options="category.id as category.title for category in categories" > </select>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['subcategory']}">
+        <label for="subcategory" class="translate">{{ "Subcategoria" | translate }}</label>
+        <select class="form-control" id="subcategory"  ng-model="product.subcategory" ng-options="subcategory.id as subcategory.title for subcategory in subcategories[product.category]"></select>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
+      </div>
+      <div class="form-group col-md-6" >
+        <label for="state" class="translate">{{ "Estado" | translate }}</label>
+        <input type="text" class="form-control" id="state" disabled="disabled" ng-model="product.state"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['id_product']}">
+        <label for="id_product" class="translate">{{ "Código equipo" | translate }}</label>
+        <input type="text" class="form-control" id="id_product" disabled="disabled" ng-model="product.id_product"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['title']}">
+        <label for="title" class="translate">{{ "Título" | translate }}</label>
+        <input type="text" class="form-control" id="title" placeholder='{{ "Introduzca titulo" | translate }}' ng-model="product.title"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['title']"></span>
+      </div>
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['min_price']}">
+        <label for="min_price" class="translate">{{ "Precio mínimo" | translate }}</label>
+        <input type="text" class="form-control" id="min_price" placeholder='{{ "Introduzca precio mínimo" | translate }}' ng-model="product.min_price"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['min_price']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-12" ng-class="{'has-error has-feedback': error['short_description']}">
+        <label for="title" class="translate">{{ "Descripción corta" | translate }}</label>
+        <input type="text" class="form-control" id="short_description" placeholder='{{ "Introduzca descripción corta" | translate }}' ng-model="product.short_description"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['short_description']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-12" ng-class="{'has-error has-feedback': error['description']}">
+        <label for="title" class="translate">{{ "Descripción" | translate }}</label>
+        <textarea class="form-control" id="description" placeholder='{{ "Introduzca descripción" | translate }}' ng-model="product.description"></textarea>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['short_description']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <label>{{ "Imagenes" | translate }}</label>
+        <input type="file" nv-file-select uploader="uploader" multiple/>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="50%">{{ "Nombre" || translate }}</th>
+              <th ng-show="uploader.isHTML5">{{ "Tamaño" || translate }}</th>
+              <th ng-show="uploader.isHTML5">{{ "Progreso" || translate }}</th>
+              <th>{{ "Estado" || translate }}</th>
+              <th>{{ "Acciones" || translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in uploader.queue">
+              <td>
+                <strong>{{ item.file.name }}</strong>
+                <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+              </td>
+              <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+              <td ng-show="uploader.isHTML5">
+                  <div class="progress" style="margin-bottom: 0;">
+                      <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                  </div>
+              </td>
+              <td class="text-center">
+                  <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                  <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                  <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+              </td>
+              <td nowrap>
+                  <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                      <span class="glyphicon glyphicon-upload"></span> Upload
+                  </button>
+                  <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                      <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                  </button>
+                  <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                      <span class="glyphicon glyphicon-trash"></span> Remove
+                  </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <label>{{ "Información a completar por el Administrador:" | translate }}</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['id_product']}">
+        <label for="id_product" class="translate">{{ "Código equipo" | translate }}</label>
+        <input type="text" class="form-control" id="id_product" disabled="disabled" ng-model="product.id_product"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
+      </div>
+      <div class="form-group col-md-6" >
+        <label for="state" class="translate">{{ "Fecha sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="date" disabled="disabled" ng-model="product.date"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['date']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['type']}">
+        <label for="type" class="translate">{{ "Tipo sorteo" | translate }}</label>
+        <select class="form-control" id="type" disabled="disabled" ng-model="product.type"></select>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['type']"></span>
+      </div>
+      <div class="form-group col-md-6" >
+        <label for="hour" class="translate">{{ "Hora sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="hour" disabled="disabled" ng-model="product.hour"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['hour']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['ballots']}">
+        <label for="ballots" class="translate">{{ "Nº Total papeletas" | translate }}</label>
+        <input type="text" class="form-control" id="ballots" disabled="disabled" ng-model="product.ballots"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['ballots']"></span>
+      </div>
+      <div class="form-group col-md-6" >
+        <label for="price" class="translate">{{ "Precio" | translate }}</label>
+        <input type="text" class="form-control" id="price" disabled="disabled" ng-model="product.price"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['price']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['ballots']}">
+        <label for="amount" class="translate">{{ "Importe sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="amount" disabled="disabled" ng-model="product.amount"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['amount']"></span>
+      </div>
+      <div class="form-group col-md-6" >
+        <label for="reserved" class="translate">{{ "Porcentaje reserva" | translate }}</label>
+        <input type="text" class="form-control" id="reserved" disabled="disabled" ng-model="product.reserved"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['reserved']"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6" ng-class="{'has-error has-feedback': error['state']}">
+        <label for="state" class="translate">{{ "Estado sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="state" disabled="disabled" ng-model="product.state"/>
+        <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['state']"></span>
+      </div>
+    </div>
+    
+  </fieldset>
   <div class="alert alert-danger" ng-show="save_error">{{ save_error }}</div>
   <div class="alert alert-success" ng-show="save_ok">{{ "Datos guardados correctamente" || translate }}</div>
-  <button type="submit" class="btn btn-warning translate" >{{ "Volver" | translate }}</button>
+  <button type="submit" class="btn btn-warning translate" ng-click="back()">{{ "Volver" | translate }}</button>
   <button type="submit" class="btn btn-primary translate" >{{ "Guardar" | translate }}</button>
-  <button type="button" class="btn btn-danger translate">{{ "Eliminar" | translate }}</button>
+  <button type="button" class="btn btn-danger translate" ng-show="{{ false }}">{{ "Eliminar" | translate }}</button>
   <div class="clearfix"></div>
 </div>
 

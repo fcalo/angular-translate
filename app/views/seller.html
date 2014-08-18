@@ -1,4 +1,4 @@
-<h1 class="translate"> {{ "Mi cuenta" | translate }}</h1>
+<h1 class="translate"> {{ "Datos suministrador" | translate }} <b>{{user.tradename}}</b></h1> 
 
 
 <div class="work-area">
@@ -12,7 +12,6 @@
   <div class="tab-content">
     <div class="tab-pane active" id="user-data">
       <form role="form">
-       
         <h2 class="translate">{{ "Datos personales" || translate }}</h2>
         <div class="c2">
           <div class="form-group" ng-class="{'has-error has-feedback': error['tradename']}">
@@ -178,6 +177,12 @@
           
         </tbody>
       </table>
+      <ul class="pager pull-right">
+        <li><a href="#">{{ "Anterior" | translate }}</a></li>
+        <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+      </ul>
+      <div class="clearfix"></div>
+      <hr/>
       <button type="button" data-toggle="modal" data-target="#retire-modal" class="btn btn-primary translate">{{ "Retirar fondos" | translate }}</button>
       <span class="clear"></span>
     </div>
@@ -199,6 +204,12 @@
         </thead>
         <tbody id="lotto-seller-body">
       </table>
+      <ul class="pager pull-right">
+        <li><a href="#">{{ "Anterior" | translate }}</a></li>
+        <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+      </ul>
+      <div class="clearfix"></div>
+      <hr/>
       <button type="submit" class="btn btn-primary translate" ng-click="saveUser(user)">{{ "Añadir equipo" | translate }}</button>
       <div class="clearfix"></div>
     </div>
@@ -234,12 +245,17 @@
             <td>Iphone - CBG-4568</td>
             <td>Pepe</td>
             <td class="text-center">4</td>
-            <td>Lorem ipsum dolor sit amet...</td>
-            <td>Lorem ipsum dolor sit amet...</td>
+            <td><span tooltip="{{lorem}}">Lorem ipsum dolor sit amet...</span></td>
+            <td><span tooltip="{{lorem}}">Lorem ipsum dolor sit amet...</span></td>
             <td class="text-center"><a href= '#/rating/3458'><span class="glyphicon glyphicon-comment"></span></a></td>
           </tr>
         </tbody>
       </table>
+      <ul class="pager pull-right">
+        <li><a href="#">{{ "Anterior" | translate }}</a></li>
+        <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+      </ul>
+      <div class="clearfix"></div>
     </div>
   </div>
   

@@ -169,9 +169,14 @@
           </tr>
         </thead>
         <tbody id="fiscal-body">
-          
         </tbody>
       </table>
+      <ul class="pager pull-right">
+        <li><a href="#">{{ "Anterior" | translate }}</a></li>
+        <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+      </ul>
+      <div class="clearfix"></div>
+      <hr/>
       <div class="col-md-6">
         <form class="form-horizontal" role="form">
             <fieldset>
@@ -196,7 +201,8 @@
           </form>
         <button type="button" class="btn btn-warning translate">{{ "Ingresar fondos" | translate }}</button>
       </div>
-      <div class="col-md-6 retire">
+
+      <div class="col-md-5 retire">
         <form class="form-horizontal" role="form">
             <fieldset>
               <div class="form-group">
@@ -217,6 +223,7 @@
       </div>
       <span class="clear"></span>
     </div>
+    
     <div class="tab-pane" id="lotto">
       <h2 class="translate">{{ "Sorteos" || translate }}</h2>
       <table class="table table-hover">
@@ -233,6 +240,11 @@
         <tbody id="lotto-body">
         </tbody>
       </table>
+      <ul class="pager pull-right">
+        <li><a href="#">{{ "Anterior" | translate }}</a></li>
+        <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+      </ul>
+      <div class="clearfix"></div>
     </div>
     <div class="tab-pane" id="history">
       <h2 class="translate">{{ "Historial de pedidos" || translate }}</h2>
@@ -251,6 +263,11 @@
           
         </tbody>
       </table>
+      <ul class="pager pull-right">
+        <li><a href="#">{{ "Anterior" | translate }}</a></li>
+        <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+      </ul>
+      <div class="clearfix"></div>
     </div>
   </div>
   

@@ -22,8 +22,11 @@ angular.module('wwwApp')
       $("#left-categories").html("");
       $("#menu-categories ul").html("");
       var key;
+      $scope.categories = categories; 
+      $scope.subcategories = {}; 
       for (key in categories){
         var category = categories[key];
+        
         
         var has_subcategories = category["subcategories"].length>0;
           
@@ -41,6 +44,7 @@ angular.module('wwwApp')
           $("#left-categories #c" + category['id']).append('<ul class="nav nav-list tree"></ul>');
           $("#menu-categories ul.dropdown-menu-primary #c_m" + category['id']).append('<ul class="dropdown-menu"></ul>');
         }
+        $scope.subcategories[category['id']] = category["subcategories"];
         for (keySubcategory in category["subcategories"]){
             var subcategory = category["subcategories"][keySubcategory];
             $("#left-categories #c" + category['id']+ " ul").append('<li><a href="#/category/' + subcategory['friendly_url'] + '">' + subcategory['title'] + '</a></li>');
@@ -156,7 +160,13 @@ angular.module('wwwApp')
     $scope.loadCities2 = function(id_province){
       return _loadCities(id_province, 1);
     }
-      
+    
+    $scope.short_lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempus elit sit amet neque facilisis gravida. ";
+    $scope.lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempus elit sit amet neque facilisis gravida. Nunc nunc dolor, viverra quis congue vel, placerat eu est. Vestibulum magna turpis, sodales sit amet mi vitae, elementum ullamcorper leo. Aliquam erat volutpat. Sed blandit enim ut quam convallis posuere. Vivamus magna dolor, congue euismod blandit quis, sagittis ut dui. Ut id est lacus. Vivamus molestie porttitor ornare.";
+    
+    $scope.back = function() {
+      window.history.back();
+    };
     
 		
 	$('#language-selector li a').click(function(){

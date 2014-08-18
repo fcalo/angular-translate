@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'pascalprecht.translate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angularFileUpload'
   ])
   .config(function ($routeProvider, $translateProvider) {
     $routeProvider
@@ -53,6 +54,10 @@ angular
         templateUrl: 'views/rating.html',
         controller: 'RatingCtrl'
       })
+      .when('/draw/:lotto_id', {
+        templateUrl: 'views/draw.html',
+        controller: 'DrawCtrl'
+      })
       .when('/category/:category_url', {
         templateUrl: 'views/category.html',
         controller: 'CategoryCtrl'
@@ -73,5 +78,9 @@ angular
 	$translateProvider.preferredLanguage('es');
 	
 	
+}).filter('iif', function () {
+   return function(input, trueValue, falseValue) {
+        return input ? trueValue : falseValue;
+   };
 });
 
