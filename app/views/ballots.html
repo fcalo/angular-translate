@@ -1,0 +1,109 @@
+<h1 class="translate"> {{ "Papeletas" | translate }}</h1>
+
+
+<div class="work-area ballots">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Iphone 5</h3>
+      <div class="row">
+        
+        <div class="col-md-8 col-sm-8">
+          <div> {{ short_lorem }} </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="info">
+            <div><span>Sorteo: </span> 45</div>
+            <div><span>Fecha: </span> 10/10/2014</div>
+            <div><span>Hora: </span> 18:30</div>
+            <div><span>Papeletas: </span> 700</div>
+            <div><span>Precio: </span> 1€</div>
+            <div><span>Porcentaje Comprado: </span> 46%</div>
+            <div><span>Porcentaje Efectivo: </span> 10%</div>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div class="image-area text-right">
+            <div class="thumbsshell">
+              <div class="thumbswrapper">
+                <ul>
+                  <li ng-repeat="image in [1,2,3,4]">
+                    <div class="thumbwrapper">
+                      <a href="images/equipment/test.png" fancybox>
+                        <img class="thumbnail" ng-src="images/equipment/test.png" />
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h2>{{ "Papeletas" | translate }}</h2>
+      <div class="grid-ballots">
+        <div class="row">
+          <div class="col-md-12">
+            <table>
+                <tr ng-repeat="j in [1,2,3,4] track by $index" ng-init="r=$index + 16">
+                  <td id="ballot_{{ (r * 25) + $index + 1 }}" ng_click="ballotSelected('ballot_' +  ((r * 25) + $index + 1))" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]"> 
+                    <span ng-init="randomAssigned()" tooltip="{{ 'libre' | translate }}">{{ (r * 25) + $index + 1 }}</span> 
+                  </td>
+                </tr>
+            </table>
+            <ul class="pager pull-left">
+              <li><a href="#">1-100</a></li>
+              <li><a href="#">101-200</a></li>
+              <li><a href="#">201-300</a></li>
+              <li><a href="#">301-400</a></li>
+              <li><a href="#">501-600</a></li>
+              <li><a href="#">601-700</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <button type="button" class="btn btn-success" > <span class="glyphicon glyphicon-shopping-cart"></span> {{ "Comprar papeletas seleccionadas" || translate }} </button>
+        </div>
+        <div class="col-md-8 col-sm-6">
+          <button data-toggle="modal" data-target="#buy-modal" type="button" class="btn btn-primary" > <span class="glyphicon glyphicon-shopping-cart"></span> {{ "Comprar papeletas disponibles" || translate }} </button>
+        </div>
+      </div>
+      
+      
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="buy-modal" tabindex="-1" role="dialog" aria-labelledby="buy-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="buy-label"><span class="glyphicon glyphicon-shopping-cart"></span> {{ "Comprar papeletas disponible" || translate }} </h4>
+      </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">{{ "Importe" | translate }}</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="amount" placeholder="Importe para comprar papeletas"/>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+		  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Volver" || translate }} </button>
+        <button type="button" class="btn btn-primary" id="btn_login"> <span class="glyphicon glyphicon-shopping-cart"></span>{{ "Comprar" || translate }} </button>
+      </div>
+    </div>
+  </div>
+</div>

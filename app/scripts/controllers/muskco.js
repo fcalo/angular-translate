@@ -11,6 +11,7 @@
 angular.module('wwwApp')
   .controller('MuskcoCtrl', function ($translate, $scope, $http) {
 	
+    $scope.production = true;
 	  
     $scope.changeLanguage = function (langKey) {
       $translate.use(langKey);
@@ -86,7 +87,7 @@ angular.module('wwwApp')
       $("#password").parent().parent().removeClass("has-error");
     
       $http({
-        url: 'data_dev/login.json',
+        url: $scope.production ? 'LoginUserPassword':'data_dev/login.json',
         data : "username=" + user.username +"&password=" + user.password
       }).success(function(data){
         if (data.status){
@@ -107,7 +108,7 @@ angular.module('wwwApp')
     $scope.logout = function(){
       
       $http({
-        url: 'data_dev/logout.json'
+        url: $scope.production ? 'Logout':'data_dev/logout.json'
       }).success(function(data){
         if (data.status){
           $scope.login_ok = null;

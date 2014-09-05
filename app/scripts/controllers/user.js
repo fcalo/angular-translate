@@ -45,7 +45,6 @@ angular.module('wwwApp')
           }
         }
         
-        
         //fiscal
         var i;
         for (i in data['fiscal_data']){
@@ -160,10 +159,12 @@ angular.module('wwwApp')
     })
     
     
+    
+
     // unsuscribe
     $scope.unsuscribeUser = function(){
       $http({
-        url: 'data_dev/unsuscribeUser.json',
+        url: $scope.production ? 'BajaUser':'data_dev/unsuscribeUser.json',
         data : "id_user=" + $routeParams.user_id,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).success(function(data){
@@ -175,7 +176,7 @@ angular.module('wwwApp')
           $scope.unsuscribe_error = data.error_msg;
         }
       }).error(function(){
-          alert("Ha ocurrido algún error al realizar el registro!.");
+          alert("Error de comunicación.");
       })
     }
     
@@ -189,7 +190,7 @@ angular.module('wwwApp')
       }
       
       $http({
-        url: 'data_dev/saveUser.json',
+        url: $scope.production ? 'ModifDirec':'data_dev/saveUser.json',
         data : params.join("&"),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).success(function(data){

@@ -4,6 +4,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // endbower
 $fa-font-path: "/bower_components/font-awesome/fonts";
 @import "font-awesome/scss/font-awesome";
+@import "vendor/fancybox.css";
 
 
 @keyframes infinite-spinning {
@@ -445,7 +446,65 @@ table tr:last-child td{
               font-weight:bold;
             }
           }
+          .thumbsshell {
+            width:400px;
+            padding:10px;
+            .thumbswrapper {
+              margin:20px auto;
+              width:394px;
+              height:60px;
+              .thumbnail {
+                height:50px;
+              }
+            }
+          }
           
+        }
+        .ballots{
+          .grid-ballots{
+            table{
+              width:100%;
+              td{
+                width:4%;
+                text-align:center;
+                border:1px solid $gray-light;
+                cursor:pointer;
+                padding:8px 0;
+              }
+              .selected, .selected:hover{
+                background-color:$brand-success;
+              }
+              .assigned, .assigned:hover{
+                background-color:$brand-danger;
+              }
+              td:hover{
+                background-color:$gray-lighter;
+              }
+              
+              
+            }
+            
+          }
+          .info{
+            padding-left:8px;
+            border-left:1px solid $gray-lighter;
+            border-right:1px solid $gray-lighter;
+            font-size:0.9em;
+            span{
+              font-weight:bold;
+            }
+          }
+          .thumbsshell {
+            .thumbswrapper {
+              height:120px;
+              .thumbnail {
+                height:120px;
+              }
+            }
+          }
+            
+        }
+        .ballots, .draw{
           .image-area{
             border-left:1px solid $gray-lighter;
             ul{
@@ -484,26 +543,20 @@ table tr:last-child td{
             }
 
             .thumbsshell {
-                width:400px;
-                padding:10px;
+                
                 border-radius:8px;
                 float:left;
                 .thumbswrapper {
                     overflow: hidden;
-                    width:394px;
-                    height:60px;
-                    margin:20px auto;
                     float:left;
-                    height:60px;
                     .thumbnail {
-                        height:50px;
                         padding:2px;
                     }
                 }
             }
-          }
-
         }
+      }
+        
 		.list-item{
       h2{
           font-weight:bold;

@@ -54,9 +54,13 @@ angular
         templateUrl: 'views/rating.html',
         controller: 'RatingCtrl'
       })
-      .when('/draw/:lotto_id', {
+      .when('/draw/:draw_id', {
         templateUrl: 'views/draw.html',
         controller: 'DrawCtrl'
+      })
+      .when('/ballots/:draw_id', {
+        templateUrl: 'views/ballots.html',
+        controller: 'BallotsCtrl'
       })
       .when('/category/:category_url', {
         templateUrl: 'views/category.html',

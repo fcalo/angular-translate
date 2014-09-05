@@ -37,7 +37,7 @@ angular.module('wwwApp')
         }
         
         $http({
-          url: 'data_dev/register_seller.json',
+          url: $scope.production ? 'AltaUserDatPers':'data_dev/register.json',
           data : params.join("&"),
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(data){
