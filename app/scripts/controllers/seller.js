@@ -8,7 +8,7 @@
  * Controller of the wwwApp
  */
 angular.module('wwwApp')
-  .controller('SellerCtrl', function ($scope, $routeParams, $http, $compile) {
+  .controller('SellerCtrl', function ($scope, $routeParams, $http, $compile, $filter) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,7 +20,7 @@ angular.module('wwwApp')
     
     $http({
       url: 'data_dev/getUser.json',
-      data : "seller=1&id_user=" + $routeParams.user_id,
+      params : { "seller" : 1 , "id_user" : $routeParams.user_id},
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).success(function(data){
       if (data.status){
@@ -91,7 +91,8 @@ angular.module('wwwApp')
       
       
     }).error(function(){
-        alert("Error de conexión!.");
+        //~ {{ "Error de conexión!." | translate }}
+        alert($filter('translate')("Error de conexión!."));
     })
     
     
@@ -99,7 +100,7 @@ angular.module('wwwApp')
     $scope.unsuscribeUser = function(){
       $http({
         url: 'data_dev/unsuscribeUser.json',
-        data : "id_user=" + $routeParams.user_id,
+        params : { "id_user" : $routeParams.user_id},
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).success(function(data){
         if(data.status){
@@ -110,7 +111,8 @@ angular.module('wwwApp')
           $scope.unsuscribe_error = data.error_msg;
         }
       }).error(function(){
-          alert("Ha ocurrido algún error al realizar el registro!.");
+          //~ {{ "Ha ocurrido algún error al realizar el registro!." | translate }}
+          alert($filter('translate')("Ha ocurrido algún error al realizar el registro!."));
       })
     }
     
@@ -120,12 +122,12 @@ angular.module('wwwApp')
       var params = []
       var k;
       for (k in user){
-        params.push(k + "=" + user[k])
+        params[k] = user[k];
       }
       
       $http({
         url: 'data_dev/saveUser.json',
-        data : params.join("&"),
+        params : params,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).success(function(data){
         if(data.status){
@@ -135,7 +137,8 @@ angular.module('wwwApp')
           $scope.error = data.inputs_failed;
         }
       }).error(function(){
-          alert("Ha ocurrido algún error al realizar el registro!.");
+          //~ {{ "Ha ocurrido algún error al realizar el registro!." | translate }}
+          alert($filter('translate')("Ha ocurrido algún error al realizar el registro!."));
       })
     }
     

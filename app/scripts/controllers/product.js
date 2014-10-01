@@ -14,6 +14,8 @@ angular.module('wwwApp')
       'AngularJS',
       'Karma'
     ];
+    
+    $scope.admin_mode = window.location.href.indexOf("/admin/product/") > -1
     $scope.uploader = new FileUploader({
       url: 'upload'
       });

@@ -25,6 +25,7 @@ angular.module('wwwApp')
         //~ });
         
         if(!$scope.register || !$scope.register.term_of_use){
+          // {{ "Debe aceptar los terminos de uso" | translate }} 
           $scope.register_error = $filter('translate')("Debe aceptar los terminos de uso");
           return false;
         }
@@ -33,12 +34,12 @@ angular.module('wwwApp')
         var params = []
         var k;
         for (k in register){
-          params.push(k + "=" + register[k])
+          params[k] = register[k]
         }
         
         $http({
           url: $scope.production ? 'AltaUserDatPers':'data_dev/register.json',
-          data : params.join("&"),
+          params : params,
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function(data){
           if(data.status){
@@ -51,7 +52,8 @@ angular.module('wwwApp')
             //~ }
           }
         }).error(function(){
-            alert("Ha ocurrido algún error al realizar el registro!.");
+            //~ {{ "Ha ocurrido algún error al realizar el registro!." | translate }}
+            alert($filter('translate')("Ha ocurrido algún error al realizar el registro!."));
         })
      }
 

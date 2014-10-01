@@ -38,11 +38,11 @@ angular
         templateUrl: 'views/reset.html',
         controller: 'ResetCtrl'
       })
-      .when('/user/:user_id', {
+      .when('/user', {
         templateUrl: 'views/user.html',
         controller: 'UserCtrl'
       })
-      .when('/seller/:user_id', {
+      .when('/seller', {
         templateUrl: 'views/seller.html',
         controller: 'SellerCtrl'
       })
@@ -69,6 +69,26 @@ angular
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
+      })
+      .when('/admin/users', {
+        templateUrl: 'views/admin_users.html',
+        controller: 'AdminusersCtrl'
+      })
+      .when('/admin/user/:user_id', {
+        templateUrl: 'views/user.html',
+        controller: 'UserCtrl'
+      })
+      .when('/admin/products', {
+        templateUrl: 'views/admin_products.html',
+        controller: 'AdminproductsCtrl'
+      })
+      .when('/admin/product/', {
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
+      })
+      .when('/admin/product/:product_id', {
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
       })
       .otherwise({
         redirectTo: '/'

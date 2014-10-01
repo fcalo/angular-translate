@@ -1,55 +1,54 @@
-<h1 class="translate"> {{ "Detalle de Equipo - Sorteo" | translate }}</h1>
-
+<h1 > {{ "Detalle de Equipo - Sorteo" | translate }}</h1>
 
 <div class="work-area product">
   <fieldset>
     <div class="row">
       <div class="form-group col-md-6 col-sm-6" ng-class="{'has-error has-feedback': error['category']}">
-        <label for="category" class="translate">{{ "Categoría" | translate }}</label>
+        <label for="category">{{ "Categoría" | translate }}</label>
         <select class="form-control" id="category"  ng-model="product.category" ng-options="category.id as category.title for category in categories" > </select>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6 col-sm-6" ng-class="{'has-error has-feedback': error['subcategory']}">
-        <label for="subcategory" class="translate">{{ "Subcategoria" | translate }}</label>
+        <label for="subcategory">{{ "Subcategoria" | translate }}</label>
         <select class="form-control" id="subcategory"  ng-model="product.subcategory" ng-options="subcategory.id as subcategory.title for subcategory in subcategories[product.category]"></select>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
       </div>
       <div class="form-group col-md-6  col-sm-6" >
-        <label for="state" class="translate">{{ "Estado" | translate }}</label>
-        <input type="text" class="form-control" id="state" disabled="disabled" ng-model="product.state"/>
+        <label for="state">{{ "Estado" | translate }}</label>
+        <input type="text" class="form-control" id="state" ng-disabled="!admin_mode" ng-model="product.state"/>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['id_product']}">
-        <label for="id_product" class="translate">{{ "Código equipo" | translate }}</label>
-        <input type="text" class="form-control" id="id_product" disabled="disabled" ng-model="product.id_product"/>
+        <label for="id_product">{{ "Código equipo" | translate }}</label>
+        <input type="text" class="form-control" id="id_product" ng-disabled="!admin_mode" ng-model="product.id_product"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['title']}">
-        <label for="title" class="translate">{{ "Título" | translate }}</label>
+        <label for="title">{{ "Título" | translate }}</label>
         <input type="text" class="form-control" id="title" placeholder='{{ "Introduzca titulo" | translate }}' ng-model="product.title"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['title']"></span>
       </div>
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['min_price']}">
-        <label for="min_price" class="translate">{{ "Precio mínimo" | translate }}</label>
+        <label for="min_price">{{ "Precio mínimo" | translate }}</label>
         <input type="text" class="form-control" id="min_price" placeholder='{{ "Introduzca precio mínimo" | translate }}' ng-model="product.min_price"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['min_price']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-12" ng-class="{'has-error has-feedback': error['short_description']}">
-        <label for="title" class="translate">{{ "Descripción corta" | translate }}</label>
+        <label for="title">{{ "Descripción corta" | translate }}</label>
         <input type="text" class="form-control" id="short_description" placeholder='{{ "Introduzca descripción corta" | translate }}' ng-model="product.short_description"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['short_description']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-12" ng-class="{'has-error has-feedback': error['description']}">
-        <label for="title" class="translate">{{ "Descripción" | translate }}</label>
+        <label for="title">{{ "Descripción" | translate }}</label>
         <textarea class="form-control" id="description" placeholder='{{ "Introduzca descripción" | translate }}' ng-model="product.description"></textarea>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['short_description']"></span>
       </div>
@@ -110,56 +109,56 @@
     </div>
     <div class="row">
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['id_product']}">
-        <label for="id_product" class="translate">{{ "Código equipo" | translate }}</label>
-        <input type="text" class="form-control" id="id_product" disabled="disabled" ng-model="product.id_product"/>
+        <label for="id_product">{{ "Código equipo" | translate }}</label>
+        <input type="text" class="form-control" id="id_product" ng-disabled="!admin_mode" ng-model="product.id_product"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
       </div>
       <div class="form-group col-md-6  col-sm-6" >
-        <label for="state" class="translate">{{ "Fecha sorteo" | translate }}</label>
-        <input type="text" class="form-control" id="date" disabled="disabled" ng-model="product.date"/>
+        <label for="state">{{ "Fecha sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="date" ng-disabled="!admin_mode" ng-model="product.date"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['date']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['type']}">
-        <label for="type" class="translate">{{ "Tipo sorteo" | translate }}</label>
-        <select class="form-control" id="type" disabled="disabled" ng-model="product.type"></select>
+        <label for="type">{{ "Tipo sorteo" | translate }}</label>
+        <select class="form-control" id="type" ng-disabled="!admin_mode" ng-model="product.type"></select>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['type']"></span>
       </div>
       <div class="form-group col-md-6  col-sm-6" >
-        <label for="hour" class="translate">{{ "Hora sorteo" | translate }}</label>
-        <input type="text" class="form-control" id="hour" disabled="disabled" ng-model="product.hour"/>
+        <label for="hour">{{ "Hora sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="hour" ng-disabled="!admin_mode" ng-model="product.hour"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['hour']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['ballots']}">
-        <label for="ballots" class="translate">{{ "Nº Total papeletas" | translate }}</label>
-        <input type="text" class="form-control" id="ballots" disabled="disabled" ng-model="product.ballots"/>
+        <label for="ballots">{{ "Nº Total papeletas" | translate }}</label>
+        <input type="text" class="form-control" id="ballots" ng-disabled="!admin_mode" ng-model="product.ballots"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['ballots']"></span>
       </div>
       <div class="form-group col-md-6  col-sm-6" >
-        <label for="price" class="translate">{{ "Precio" | translate }}</label>
-        <input type="text" class="form-control" id="price" disabled="disabled" ng-model="product.price"/>
+        <label for="price">{{ "Precio" | translate }}</label>
+        <input type="text" class="form-control" id="price" ng-disabled="!admin_mode" ng-model="product.price"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['price']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['ballots']}">
-        <label for="amount" class="translate">{{ "Importe sorteo" | translate }}</label>
-        <input type="text" class="form-control" id="amount" disabled="disabled" ng-model="product.amount"/>
+        <label for="amount">{{ "Importe sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="amount" ng-disabled="!admin_mode" ng-model="product.amount"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['amount']"></span>
       </div>
       <div class="form-group col-md-6  col-sm-6" >
-        <label for="reserved" class="translate">{{ "Porcentaje reserva" | translate }}</label>
-        <input type="text" class="form-control" id="reserved" disabled="disabled" ng-model="product.reserved"/>
+        <label for="reserved">{{ "Porcentaje reserva" | translate }}</label>
+        <input type="text" class="form-control" id="reserved" ng-disabled="!admin_mode" ng-model="product.reserved"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['reserved']"></span>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-md-6  col-sm-6" ng-class="{'has-error has-feedback': error['state']}">
-        <label for="state" class="translate">{{ "Estado sorteo" | translate }}</label>
-        <input type="text" class="form-control" id="state" disabled="disabled" ng-model="product.state"/>
+        <label for="state">{{ "Estado sorteo" | translate }}</label>
+        <input type="text" class="form-control" id="state" ng-disabled="!admin_mode" ng-model="product.state"/>
         <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['state']"></span>
       </div>
     </div>
@@ -167,9 +166,9 @@
   </fieldset>
   <div class="alert alert-danger" ng-show="save_error">{{ save_error }}</div>
   <div class="alert alert-success" ng-show="save_ok">{{ "Datos guardados correctamente" || translate }}</div>
-  <button type="submit" class="btn btn-warning translate" ng-click="back()">{{ "Volver" | translate }}</button>
-  <button type="submit" class="btn btn-primary translate" >{{ "Guardar" | translate }}</button>
-  <button type="button" class="btn btn-danger translate" ng-show="{{ false }}">{{ "Eliminar" | translate }}</button>
+  <button type="submit" class="btn btn-warning" ng-click="back()">{{ "Volver" | translate }}</button>
+  <button type="submit" class="btn btn-primary" >{{ "Guardar" | translate }}</button>
+  <button type="button" class="btn btn-danger" ng-show="{{ false }}">{{ "Eliminar" | translate }}</button>
   <div class="clearfix"></div>
 </div>
 

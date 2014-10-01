@@ -388,9 +388,16 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+    i18nextract: {
+	  default_options: {
+	    src: [ 'app/**/*.js', 'app/**/*.html' ],
+	    lang:     ['es', 'fr', 'en', "pt", "de" ],
+	    dest:     'tmp'
+	  }
+	}
   });
-
+  grunt.loadNpmTasks('grunt-angular-translate');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -417,7 +424,8 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+    'karma',
+    'i18nextract'
   ]);
 
   grunt.registerTask('build', [

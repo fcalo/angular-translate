@@ -9,13 +9,40 @@
  */
  
 angular.module('wwwApp')
-  .controller('MuskcoCtrl', function ($translate, $scope, $http) {
+  .controller('MuskcoCtrl', function ($translate, $scope, $http, $filter) {
 	
     $scope.production = true;
 	  
+    $scope.lang_selected = "ES";
     $scope.changeLanguage = function (langKey) {
       $translate.use(langKey);
+      $scope.lang_selected = langKey.toUpperCase();
     }
+    
+    
+    //html 2 json(patch)
+    $scope.table2object = function(tableHtml){
+      $("#comunicate").html(tableHtml);
+      var cols = [];
+      var result = [];
+      $('#comunicate table th').each(function(){
+          cols.push($(this).text().toLowerCase());
+      });
+      $('#comunicate table tr').each(function(id){
+          if ($(this).find('td').length>0){
+            var row = {};
+            $(this).find('td').each(function(index){
+                row[cols[index]] = $(this).text();
+            });
+            result.push(row);
+          }
+      });
+      if (result.length == 1)
+        return result[0];
+      else
+        return result;
+    }
+    
     //load categories
     $http({
       url: 'data_dev/categories.json'
@@ -73,35 +100,39 @@ angular.module('wwwApp')
       $("#password").parent().parent().removeClass("has-error");
       if (!user || !user.username){
         $("#username").parent().parent().addClass("has-error");
-        //~ $scope.error_login = $translate('Usuario no valido');
-        $scope.error_login = 'Usuario no valido';
+        //~ {{ 'Usuario no valido' | "translate" }};
+        $scope.error_login = $filter("translate")('Usuario no valido');
         return false;
       }
       if (!user.password){
         $("#password").parent().parent().addClass("has-error");
-        //~ $scope.error_login = $translate('Contraseña no valida');
-        $scope.error_login = 'Contraseña no valida';
+        //~ {{ 'Contraseña no valida' | "translate" }};
+        $scope.error_login = $filter("translate")('Contraseña no valida');
         return false;
       }
       $("#username").parent().parent().removeClass("has-error");
       $("#password").parent().parent().removeClass("has-error");
-    
       $http({
-        url: $scope.production ? 'LoginUserPassword':'data_dev/login.json',
-        data : "username=" + user.username +"&password=" + user.password
-      }).success(function(data){
+        url: $scope.production ? '../LoginUserPassword':'data_dev/login.html',
+        params : {"username" : user.username , "password" : user.password}
+      }).success(function(data_html){
+        var data = $scope.table2object(data_html);
+        console.log(data);
         if (data.status){
-          $scope.user_type = data['is_seller'] ? "seller" : "user";
+          
+          //~ $scope.user_type = data['is_seller'] ? "seller" : "user";
+          $scope.user_type = "user";
           $scope.login_ok = true
           $scope.user_login = data;
           setTimeout("$('#login-modal').modal('hide');",500);
         }
         else{
-          $scope.error_login = data.error_msg;
+          $scope.error_login = $filter("translate")('Algún dato no es correcto');
         }
       }).error(function(){
           //~ $scope.error_login = $translate('Error de comunicación');
-          $scope.error_login = 'Error de comunicación';
+          //~ {{ 'Error de comunicación' | translate }}
+          $scope.error_login = $filter("translate")('Error de comunicación');
       })
     }
     
@@ -134,7 +165,7 @@ angular.module('wwwApp')
     function _loadProvinces(id_country, index){
       $http({
         url: 'data_dev/provinces.json',
-        data:{"id_country":id_country}
+        params:{"id_country":id_country}
       }).success(function(data){
         $scope.provinces[index] = data;
       });
@@ -150,7 +181,7 @@ angular.module('wwwApp')
     function _loadCities(id_province, index){
       $http({
         url: 'data_dev/cities.json',
-        data:{"id_province":id_province}
+        params:{"id_province":id_province}
       }).success(function(data){
         $scope.cities[index] = data;
       });
@@ -169,12 +200,7 @@ angular.module('wwwApp')
       window.history.back();
     };
     
-		
-	$('#language-selector li a').click(function(){
-		
-		var strs = $('#language-label').html().split(' : ');
-		$('#language-label').html(strs[0] + ' : ' + $(this).html() + ' ');
-	});
+	
 	
   $("#btn-register").click(function(){
     $("#login-modal").modal('hide');

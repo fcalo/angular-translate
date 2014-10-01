@@ -35,14 +35,17 @@
 				 <ul class="nav navbar-nav navbar-right">
 					
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> <span id="language-label"> Idioma : ES </span><span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" >
+              <span class="glyphicon glyphicon-globe"></span> <span id="language-label"> {{ "Idioma" | translate }} : {{ lang_selected }} </span><span class="caret"></span>
+            </a>
 					  <ul id="language-selector" class="dropdown-menu" role="menu" >
-						<li><a href="#" ng-click="changeLanguage('es')" ><span class="glyphicon glyphicon-ok"></span> ES</a></li>
+						<li><a ng-click="changeLanguage('es')" ><span class="glyphicon glyphicon-ok"></span> {{ lang_selected }} </a></li>
 						<li class="divider"></li>
-						<li><a href="#" ng-click="changeLanguage('en')" >EN</a></li>
-						<li><a href="#" ng-click="changeLanguage('fr')" >FR</a></li>
-						<li><a href="#" ng-click="changeLanguage('de')" >DE</a></li>
-						<li><a href="#" ng-click="changeLanguage('pt')" >PT</a></li>
+						<li><a ng-click="changeLanguage('es')" ng-hide="lang_selected == 'ES'" >ES</a></li>
+						<li><a ng-click="changeLanguage('en')" ng-hide="lang_selected == 'EN'"  >EN</a></li>
+						<li><a ng-click="changeLanguage('fr')" ng-hide="lang_selected == 'FR'"  >FR</a></li>
+						<li><a ng-click="changeLanguage('de')" ng-hide="lang_selected == 'DE'"  >DE</a></li>
+						<li><a ng-click="changeLanguage('pt')" ng-hide="lang_selected == 'PT'"  >PT</a></li>
 						
 					  </ul>
 					<li class="divider"></li>
@@ -52,7 +55,7 @@
 				 <form class="hidden-xs hidden-sm  navbar-form navbar-right" role="search">
 					<div class="form-group">
 						<div class="input-group">
-						  <input type="text" class="form-control" placeholder="Search">
+						  <input type="text" class="form-control" placeholder="{{ 'Buscar' | translate }}">
 						  <span class="input-group-btn">
 							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 						  </span>
@@ -83,18 +86,18 @@
 -->
 				  
         <div ng-show="login_ok">
-					<span class="glyphicon glyphicon-user"></span> {{ "Hola" | translate }} <a href="#/{{ user_type }}/{{ user_login.id }}">{{ user_login.name }} {{ user_login.surname }}</a>
+					<span class="glyphicon glyphicon-user"></span> {{ "Hola" | translate }} <a href="#/{{ user_type }}">{{ user_login.username }} </a>
           <a class="btn btn-link" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> {{ "Desconectar" | translate }}</a>
 				</div>
 				<div class="user-area" ng-hide="login_ok">
-					<span>Área de usuarios</span>
-					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn translate">{{ "Iniciar sesión" | translate }}</button>
-					<a class="btn btn-info navbar-btn translate" href="#/register">{{ 'Registrese' | translate }}</a>
+					<span>{{ "Área de usuarios" | translate }}</span>
+					<button type="button" data-toggle="modal" data-target="#login-modal" class="btn btn-primary navbar-btn">{{ "Iniciar sesión" | translate }}</button>
+					<a class="btn btn-info navbar-btn" href="#/register">{{ 'Registrese' | translate }}</a>
 					<span class="clear"></span>
 				</div>
 				<div class="user-area seller" ng-hide="login_ok">
-					<span>Área de vendedores</span>
-					<a class="btn btn-warning navbar-btn translate" href="#/seller/register">{{ "Vende tu producto" | translate }}</a>
+					<span>{{ "Área de vendedores" | translate }}</span>
+					<a class="btn btn-warning navbar-btn" href="#/seller/register">{{ "Vende tu producto" | translate }}</a>
 					<span class="clear"></span>
 				</div>
 <!--
@@ -110,7 +113,7 @@
 				<form class="navbar-form navbar-right" role="search">
 					<div class="form-group">
 						<div class="input-group">
-						  <input type="text" class="form-control" placeholder="Search">
+						  <input type="text" class="form-control" placeholder="{{ 'Bsucar' | translate }}">
 						  <span class="input-group-btn">
 							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 						  </span>
@@ -124,9 +127,9 @@
 	 <div id="menu" class="container">
 		 <ul class="nav navbar-nav">
 			<li class="master home"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-			<li class="master"><a href="#">Quiénes somos</a></li>
+			<li class="master"><a href="#">{{ "Quiénes somos" | translate }}</a></li>
 			<li id="menu-categories" class="dropdown master">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> Categorías <span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"></span> {{ "Categorías" | translate }} <span class="caret"></span></a>
 				<ul class="dropdown-menu dropdown-menu-primary" role="menu" >
 				   <li class="dropdown-submenu">
 					  <a href="#">Electrónica</a>
@@ -178,16 +181,16 @@
 				</ul>
 			</li>
 			<li class="master dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sorteos <span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ "Sorteos" | translate }} <span class="caret"></span></a>
 				<ul class="dropdown-menu dropdown-menu-primary" role="menu" >
-				   <li ><a href="#">En proceso</a></li>
-				   <li ><a href="#">Pasados</a></li>
-				   <li ><a href="#">Próximos</a></li>
+				   <li ><a href="#">{{ "En proceso" | translate }}</a></li>
+				   <li ><a href="#">{{ "Pasados" | translate }}</a></li>
+				   <li ><a href="#">{{ "Próximos" | translate }}</a></li>
 				</ul>
 					
 			</li>
-			<li class="master"><a href="#/contact">Contacto</a></li>
-			<li class="master" ng-show="login_ok"><a href="#/{{ user_type }}/{{ user_login.id }}">Mi cuenta</a></li>
+			<li class="master"><a href="#/contact">{{ "Contacto" | translate }}</a></li>
+			<li class="master" ng-show="login_ok"><a href="#/{{ user_type }}">{{ "Mi cuenta" | translate }}</a></li>
 			</li>
 		  </ul>
 	 </div>
@@ -197,7 +200,7 @@
       <div id='main-container' class="row">
 		<div id="sidebar" class="hidden-xs hidden-sm col-md-2">
 			<div class="module">
-				<div class="well"><span class="glyphicon glyphicon-th-list"></span> Categorías</div>
+				<div class="well"><span class="glyphicon glyphicon-th-list"></span> {{ "Categorías" | translate }}</div>
 				<ul id="left-categories" class="nav nav-list parent">
 					<li><label class="tree-toggler nav-header">Electrónica</label>
 						<ul class="nav nav-list tree">
@@ -255,9 +258,9 @@
 
   <div id="footer" class="footer container">
 	<ul class="list-inline">
-		<li><a href="#">Terminos y condiciones</a></li>
+		<li><a href="#">{{ "Terminos y condiciones" | translate }}</a></li>
 		<li>|</li>
-		<li><a href="#">Aviso Legal</a></li>
+		<li><a href="#">{{ "Aviso Legal" | translate }}</a></li>
 		<li>|</li>
 		<li><a href="#" class="btn-social btn-outline"><i class="fa fa-facebook"></i></a></li>
 		<li><a href="#" class="btn-social btn-outline"><i class="fa fa-twitter"></i></a></li>
@@ -272,7 +275,7 @@
 		<div class="modal-content">
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			<h4 class="modal-title" id="login-label"><span class="glyphicon glyphicon-user"></span> Iniciar sesión</h4>
+			<h4 class="modal-title" id="login-label"><span class="glyphicon glyphicon-user"></span> {{ "Iniciar sesión" | translate }}</h4>
 		  </div>
 		  <div class="modal-body">
         <form role="form">
@@ -280,30 +283,31 @@
             <div class="form-group">
               <div class="left-inner-addon ">
                 <span class="glyphicon glyphicon-user"></span>
-                <input type="text" class="form-control" id="username" placeholder="usuario" ng-model="user.username">
+                <input type="text" class="form-control" id="username" placeholder="{{ 'usuario' | translate }}" ng-model="user.username">
               </div>
             </div>
             <div class="form-group">
               <div class="left-inner-addon ">
                 <span class="glyphicon glyphicon-lock"></span>
-                <input type="password" class="form-control" id="password" placeholder="contraseña" ng-model="user.password">
+                <input type="password" class="form-control" id="password" placeholder="{{ 'contraseña' | translate }}" ng-model="user.password">
               </div>
             </div>
           </fieldset>
           <div class="alert alert-danger" ng-show="error_login">{{ error_login }}</div>
           <div class="alert alert-success" ng-show="login_ok">{{ "Datos correctos" | translate }}</div>
         </form>
-        <button type="button" class="btn btn-link" id="btn-reset">¿Has olvidado la contraseña?</button>
-        <button type="button" class="btn btn-link" id="btn-register">Regístrate</button>
+        <button type="button" class="btn btn-link" id="btn-reset">{{ "¿Has olvidado la contraseña?" | translate }}</button>
+        <button type="button" class="btn btn-link" id="btn-register">{{ "Regístrate" | translate }}</button>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			<button type="button" class="btn btn-primary" id="btn_login" ng-click="login(user)">Iniciar sesión</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal">{{ "Cerrar" | translate }}</button>
+			<button type="button" class="btn btn-primary" id="btn_login" ng-click="login(user)">{{ "Iniciar sesión" | translate }}</button>
 		  </div>
 		</div>
 	  </div>
+    
 	</div>
-
+  <div id="comunicate"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -371,6 +375,8 @@
         <script src="scripts/controllers/product.js"></script>
         <script src="scripts/controllers/draw.js"></script>
         <script src="scripts/controllers/ballots.js"></script>
+        <script src="scripts/controllers/adminusers.js"></script>
+        <script src="scripts/controllers/adminproducts.js"></script>
         <!-- endbuild -->
           
 </body>

@@ -16,11 +16,14 @@ angular.module('wwwApp')
       'ngAnimate'
     ];
     
+    
+    $scope.admin_mode = window.location.href.indexOf("/admin/user/")
+    
     $scope.loadCountries();
     
     $http({
       url: 'data_dev/getUser.json',
-      data : "id_user=" + $routeParams.user_id,
+      params : { "id_user" : $routeParams.user_id},
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).success(function(data){
       if (data.status){
@@ -102,6 +105,7 @@ angular.module('wwwApp')
           html += html_participations;
           if (multiple){
             $scope.expand_dir[lotto['id_lotto']] = "down";
+            //~  {{ "Ver Todas" | translate }}
             $scope.expand_label[lotto['id_lotto']] = $filter("translate")("Ver Todas");
             html += '<td><a class="text-center" \
               ng-click="expand_lotto(\'' + lotto['id_lotto']  + '\')" \
@@ -126,9 +130,12 @@ angular.module('wwwApp')
         
         
         //orders
-        var status = {0: "Pendiente",
-                      1: "Enviado",
-                      2: "Entregado"};
+        //~ {{ "Pendiente" | translate }}
+        //~ {{ "Enviado" | translate }}
+        //~ {{ "Entregado" | translate }}
+        var status = {0: $filter('translate')("Pendiente"),
+                      1: $filter('translate')("Enviado"),
+                      2: $filter('translate')("Entregado")};
         var status_label = {0: "warning",
                       1: "info",
                       2: "success"};
@@ -155,7 +162,8 @@ angular.module('wwwApp')
       
       
     }).error(function(){
-        alert("Error de conexión!.");
+        //~  {{ "Error de conexión!." | translate }}
+        alert($filter('translate')("Error de conexión!."));
     })
     
     
@@ -165,7 +173,7 @@ angular.module('wwwApp')
     $scope.unsuscribeUser = function(){
       $http({
         url: $scope.production ? 'BajaUser':'data_dev/unsuscribeUser.json',
-        data : "id_user=" + $routeParams.user_id,
+        params : {"id_user=" : $routeParams.user_id},
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).success(function(data){
         if(data.status){
@@ -186,12 +194,12 @@ angular.module('wwwApp')
       var params = []
       var k;
       for (k in user){
-        params.push(k + "=" + user[k])
+        params[k] = user[k];
       }
       
       $http({
         url: $scope.production ? 'ModifDirec':'data_dev/saveUser.json',
-        data : params.join("&"),
+        params : params,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).success(function(data){
         if(data.status){
@@ -201,7 +209,8 @@ angular.module('wwwApp')
           $scope.error = data.inputs_failed;
         }
       }).error(function(){
-          alert("Ha ocurrido algún error al realizar el registro!.");
+          //~  {{ "Ha ocurrido algún error al realizar el registro!." | translate }}
+          alert($filter('translate')("Ha ocurrido algún error al realizar el registro!."));
       })
     }
     

@@ -1,4 +1,4 @@
-<h1 class="translate"> {{ "Contacta con nosotros" | translate }}</h1>
+<h1 > {{ "Contacta con nosotros" | translate }}</h1>
 
 
 <div class="work-area contact">
@@ -10,26 +10,26 @@
         <i class="fa fa-envelope-o pull-right"></i>
 -->
         <div class="form-group col-xs-6 floating-label-form-group">
-            <label for="name">{{ "Nombre" || translate }}</label>
-            <input class="form-control" type="text" id="name" name="name" placeholder='{{ "Nombre" || translate }}'>
+            <label for="name">{{ "Nombre" | translate }}</label>
+            <input class="form-control" type="text" id="name" name="name" placeholder='{{ "Nombre" | translate }}'>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-xs-6 floating-label-form-group">
-            <label for="name">{{ "Asunto" || translate }}</label>
-            <input class="form-control" type="text" id="subject" name="subject" placeholder='{{ "Asunto" || translate }}'>
+            <label for="name">{{ "Asunto" | translate }}</label>
+            <input class="form-control" type="text" id="subject" name="subject" placeholder='{{ "Asunto" | translate }}'>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-xs-6 floating-label-form-group">
-            <label for="email">{{ "Email" || translate }}</label>
-            <input class="form-control" type="email" id="email" name="email" placeholder='{{ "Email" || translate }}'>
+            <label for="email">{{ "Email" | translate }}</label>
+            <input class="form-control" type="email" id="email" name="email" placeholder='{{ "Email" | translate }}'>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-xs-12 floating-label-form-group">
-            <label for="message">{{ "Mensaje" || translate }}</label>
-            <textarea placeholder='{{ "Mensaje" || translate }}' id="msg" class="form-control" rows="5"></textarea>
+            <label for="message">{{ "Mensaje" | translate }}</label>
+            <textarea placeholder='{{ "Mensaje" | translate }}' id="msg" class="form-control" rows="5"></textarea>
         </div>
     </div>
     <div class="alert alert-danger" ng-show="contact_error">{{ contact_error }}</div>
@@ -37,7 +37,7 @@
     
     <div class="row">
         <div class="form-group col-xs-12">
-            <button ng-click="contact_ok='Mensaje enviado correctamente'" id="send_contact" type="button" class="btn btn-lg btn-primary">{{ "Enviar mensaje" || translate }}</button>
+            <button ng-click="contact_ok='Mensaje enviado correctamente'" id="send_contact" type="button" class="btn btn-lg btn-primary">{{ "Enviar mensaje" | translate }}</button>
         </div>
     </div>
     

@@ -1,31 +1,31 @@
-<h1 class="translate"> {{ "Datos suministrador" | translate }} <b>{{user.tradename}}</b></h1> 
+<h1 > {{ "Datos suministrador" | translate }} <b>{{user.tradename}}</b></h1> 
 
 
 <div class="work-area">
   <ul class="nav nav-tabs" role="tablist" id="user-tab">
-    <li class="active"><a href="user-data" class="translate">{{ "Datos personales" | translate }}</a></li>
-    <li><a href="fiscal" class="translate">{{ "Datos economicos" | translate }}</a></li>
-    <li><a href="lotto-seller" class="translate">{{ "Equipos - Sorteos" | translate }}</a></li>
-    <li><a href="rating" class="translate">{{ "Valoraciones" | translate }}</a></li>
+    <li class="active"><a href="user-data">{{ "Datos personales" | translate }}</a></li>
+    <li><a href="fiscal">{{ "Datos economicos" | translate }}</a></li>
+    <li><a href="lotto-seller">{{ "Equipos - Sorteos" | translate }}</a></li>
+    <li><a href="rating">{{ "Valoraciones" | translate }}</a></li>
   </ul>
 
   <div class="tab-content">
     <div class="tab-pane active" id="user-data">
       <form role="form">
-        <h2 class="translate">{{ "Datos personales" || translate }}</h2>
+        <h2>{{ "Datos personales" | translate }}</h2>
         <div class="c2">
           <div class="form-group" ng-class="{'has-error has-feedback': error['tradename']}">
-            <label for="tradename" class="translate">{{ "Nombre Comercial" | translate }}</label>
+            <label for="tradename">{{ "Nombre Comercial" | translate }}</label>
             <input type="text" class="form-control" id="tradename" placeholder='{{ "Introduzca nombre comercial" | translate }}' ng-model="user.tradename"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['tradename']"></span>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['name']}">
-            <label for="name" class="translate">{{ "Nombre" | translate }}</label>
+            <label for="name">{{ "Nombre" | translate }}</label>
             <input type="text" class="form-control" id="name" placeholder='{{ "Introduzca nombre" | translate }}' ng-model="user.name"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['name']"></span>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['surname']}">
-            <label for="surname" class="translate">{{ "Apellidos" | translate }}</label>
+            <label for="surname">{{ "Apellidos" | translate }}</label>
             <input type="text" class="form-control" id="surname" placeholder='{{ "Introduzca apellidos" | translate }}' ng-model="user.surname"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['surname']"></span>
           </div>
@@ -33,17 +33,17 @@
         </div>
         <div class="c2">
           <div class="form-group" ng-class="{'has-error has-feedback': error['nif']}">
-            <label for="nif" class="translate">{{ "NIF / CIF / Pasaporte" | translate }}</label>
+            <label for="nif">{{ "NIF / CIF / Pasaporte" | translate }}</label>
             <input type="text" class="form-control" id="nif" placeholder='{{ "Introduzca documento" | translate }}' ng-model="user.nif"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['nif']"></span>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['telephone']}">
-            <label for="telephone" class="translate">{{ "Teléfono" | translate }}</label>
+            <label for="telephone">{{ "Teléfono" | translate }}</label>
             <input type="text" class="form-control" id="telephone" placeholder='{{ "Introduzca teléfono" | translate }}' ng-model="user.telephone"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['telephone']"></span>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['email']}">
-            <label for="email" class="translate">{{ "Email" | translate }}</label>
+            <label for="email">{{ "Email" | translate }}</label>
             <input type="text" class="form-control" id="email" placeholder='{{ "Introduzca email" | translate }}' ng-model="user.email"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['email']"></span>
           </div>
@@ -52,102 +52,102 @@
         <h2 class="translatte">{{ "Dirección" | translate }}</h2>
         <div class="c2">
           <div class="form-group" ng-class="{'has-error has-feedback': error['email']}">
-            <label for="address" class="translate">{{ "Dirección" | translate }}</label>
+            <label for="address">{{ "Dirección" | translate }}</label>
             <input type="text" class="form-control" id="address" placeholder='{{ "Introduzca dirección" | translate }}' ng-model="user.address"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['address']"></span>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['number']}">
             <div class="col-md-3 first">
-              <label for="number" class="translate">{{ "Nº" | translate }}</label>
+              <label for="number">{{ "Nº" | translate }}</label>
               <input type="text" class="form-control" id="number" ng-model="user.number"/>
             </div>
             <div class="col-md-3">
-              <label for="stair" class="translate">{{ "Bloque/Esc." | translate }}</label>
+              <label for="stair">{{ "Bloque/Esc." | translate }}</label>
               <input type="text" class="form-control" id="stair"/ ng-model="user.stair">
             </div>
             <div class="col-md-3">
-              <label for="floor" class="translate">{{ "Piso" | translate }}</label>
+              <label for="floor">{{ "Piso" | translate }}</label>
               <input type="text" class="form-control" id="floor" ng-model="user.floor"/>
             </div>
             <div class="col-md-3 last">
-              <label for="char" class="translate">{{ "Letra" | translate }}</label>
+              <label for="char">{{ "Letra" | translate }}</label>
               <input type="text" class="form-control" id="letter" ng-model="user.letter"/>
             </div>
             <div class="clearfix"></div>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['postal_code']}">
-            <label for="postal_code" class="translate">{{ "Código postal" | translate }}</label>
+            <label for="postal_code">{{ "Código postal" | translate }}</label>
             <input type="text" class="form-control" id="postal_code" placeholder='{{ "Introduzca código postal" | translate }}' ng-model="user.postal_code"/>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['postal_code']"></span>
           </div>
         </div>
         <div class="c2">
           <div class="form-group" ng-class="{'has-error has-feedback': error['country']}">
-            <label for="country" class="translate">{{ "País" | translate }}</label>
+            <label for="country">{{ "País" | translate }}</label>
             <select class="form-control" id="country"  ng-model="user.country" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces(user.country)"> </select>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country']"></span>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['province']}">
-            <label for="province" class="translate">{{ "Provincia" | translate }}</label>
+            <label for="province">{{ "Provincia" | translate }}</label>
             <select class="form-control" id="province"  ng-model="user.province" ng-options="province.id as province.province for province in provinces[0]" ng-change="loadCities(user.province)" ></select>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province']"></span>
           </div>
           <div class="form-group" ng-class="{'has-error has-feedback': error['city']}">
-            <label for="city" class="translate">{{ "Ciudad" | translate }}</label>
+            <label for="city">{{ "Ciudad" | translate }}</label>
             <select class="form-control" id="city"  ng-model="user.city" ng-options="city.id as city.city for city in cities[0]"></select>
             <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city']"></span>
           </div>
         </div>
         <div class="form-group clear">
-          <input type="checkbox" id="address_match" ng-model="address_match" /> <label for="address_match" class="translate"> {{ "Utilizar una dirección de envío distinta" | translate }} </label>
+          <input type="checkbox" id="address_match" ng-model="address_match" /> <label for="address_match"> {{ "Utilizar una dirección de envío distinta" | translate }} </label>
         </div>
         
         <div id="panel_address_shipping" ng-show="address_match">
           <h2 class="translatte">{{ "Dirección de envío" | translate }}</h2>
           <div class="c2">
             <div class="form-group" ng-class="{'has-error has-feedback': error['address_shipping']}">
-              <label for="address_shipping" class="translate">{{ "Dirección" | translate }}</label>
+              <label for="address_shipping">{{ "Dirección" | translate }}</label>
               <input type="text" class="form-control" id="address_shipping" placeholder='{{ "Introduzca dirección" | translate }}' ng-model="user.address_shipping"/>
               <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['address_shipping']"></span>
             </div>
             <div class="form-group" ng-class="{'has-error has-feedback': error['number_shipping']}">
               <div class="col-md-3 first" 
-                <label for="number_shipping" class="translate">{{ "Nº" | translate }}</label>
+                <label for="number_shipping">{{ "Nº" | translate }}</label>
                 <input type="text" class="form-control" id="number_shipping"  ng-model="user.number_shipping"/>
               </div>
               <div class="col-md-3">
-                <label for="stair_shipping" class="translate">{{ "Bloque/Esc." | translate }}</label>
+                <label for="stair_shipping">{{ "Bloque/Esc." | translate }}</label>
                 <input type="text" class="form-control" id="stair_shipping" ng-model="user.stair_shipping"/>
               </div>
               <div class="col-md-3">
-                <label for="floor_shipping" class="translate">{{ "Piso" | translate }}</label>
+                <label for="floor_shipping">{{ "Piso" | translate }}</label>
                 <input type="text" class="form-control" id="floor_shipping" ng-model="user.floor_shipping"/>
               </div>
               <div class="col-md-3 last">
-                <label for="letter_shipping" class="translate">{{ "Letra" | translate }}</label>
+                <label for="letter_shipping">{{ "Letra" | translate }}</label>
                 <input type="text" class="form-control" id="letter_shipping" ng-model="user.letter_shipping"/>
               </div>
               <div class="clearfix"></div>
             </div>
             <div class="form-group" ng-class="{'has-error has-feedback': error['postal_code_shipping']}">
-              <label for="postal_code_shipping" class="translate">{{ "Código postal" | translate }}</label>
+              <label for="postal_code_shipping">{{ "Código postal" | translate }}</label>
               <input type="text" class="form-control" id="postal_code_shipping" placeholder='{{ "Introduzca código postal" | translate }}' ng-model="user.postal_code_shipping"/>
               <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['postal_code_shipping']"></span>
             </div>
           </div>
           <div class="c2">
             <div class="form-group" ng-class="{'has-error has-feedback': error['country_shipping']}">
-              <label for="country_shipping" class="translate">{{ "País" | translate }}</label>
+              <label for="country_shipping">{{ "País" | translate }}</label>
               <select class="form-control" id="country_shipping"  ng-model="user.country_shipping" ng-options="country.id as country.country for country in countries" ng-change="loadProvinces2(user.country_shipping)"> </select>
               <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['country_shipping']"></span>
             </div>
             <div class="form-group" ng-class="{'has-error has-feedback': error['province_shipping']}">
-              <label for="province_shipping" class="translate">{{ "Provincia" | translate }}</label>
+              <label for="province_shipping">{{ "Provincia" | translate }}</label>
               <select class="form-control" id="province_shipping"  ng-model="user.province_shipping" ng-options="province.id as province.province for province in provinces[1]" ng-change="loadCities2(user.province_shipping)" ></select>
               <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['province_shipping']"></span>
             </div>
             <div class="form-group" ng-class="{'has-error has-feedback': error['city_shipping']}">
-              <label for="city_shipping" class="translate">{{ "Ciudad" | translate }}</label>
+              <label for="city_shipping">{{ "Ciudad" | translate }}</label>
               <select class="form-control" id="city_shipping"  ng-model="user.city_shipping" ng-options="city.id as city.city for city in cities[1]"></select>
               <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="error['city_shipping']"></span>
             </div>
@@ -155,15 +155,15 @@
         </div>
         <span class="clear"></span>
         <div class="alert alert-danger" ng-show="save_error">{{ save_error }}</div>
-        <div class="alert alert-success" ng-show="save_ok">{{ "Datos guardados correctamente" || translate }}</div>
-        <button type="submit" class="btn btn-primary translate" ng-click="saveUser(user)">{{ "Guardar" | translate }}</button>
-        <button type="button" data-toggle="modal" data-target="#unsubscribe-modal" class="btn btn-danger translate">{{ "Darme de baja" | translate }}</button>
+        <div class="alert alert-success" ng-show="save_ok">{{ "Datos guardados correctamente" | translate }}</div>
+        <button type="submit" class="btn btn-primary" ng-click="saveUser(user)">{{ "Guardar" | translate }}</button>
+        <button type="button" data-toggle="modal" data-target="#unsubscribe-modal" class="btn btn-danger">{{ "Darme de baja" | translate }}</button>
         <span class="clear"></span>
       </form>
     </div>
     
     <div class="tab-pane" id="fiscal">
-      <h2 class="translate">{{ "Datos economicos" || translate }}</h2>
+      <h2>{{ "Datos economicos" | translate }}</h2>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -183,11 +183,11 @@
       </ul>
       <div class="clearfix"></div>
       <hr/>
-      <button type="button" data-toggle="modal" data-target="#retire-modal" class="btn btn-primary translate">{{ "Retirar fondos" | translate }}</button>
+      <button type="button" data-toggle="modal" data-target="#retire-modal" class="btn btn-primary">{{ "Retirar fondos" | translate }}</button>
       <span class="clear"></span>
     </div>
     <div class="tab-pane" id="lotto-seller">
-      <h2 class="translate">{{ "Datos de Equipos - Sorteos asociados del Vendedor: " || translate }}<b>{{ user_login.name }} {{ user_login.surname }}</b></h2>
+      <h2>{{ "Datos de Equipos - Sorteos asociados del Vendedor: " | translate }}<b>{{ user_login.name }} {{ user_login.surname }}</b></h2>
       <div>{{ id_lotto }}.</div>
       <table class="table table-hover">
         <thead>
@@ -198,8 +198,8 @@
             <th>{{ "Papeletas" | translate }}</th>
             <th>{{ "Vendidas" | translate }}</th>
             <th class="text-center">{{ "Resultado" | translate }}</th>
-            <th class="text-center">Detalle sorteo</th>
-            <th class="text-center">Ver equipo</th>
+            <th class="text-center">{{ "Detalle sorteo" | translate }}</th>
+            <th class="text-center">{{ "Ver equipo" | translate }}</th>
           </tr>
         </thead>
         <tbody id="lotto-seller-body">
@@ -210,12 +210,12 @@
       </ul>
       <div class="clearfix"></div>
       <hr/>
-      <button type="submit" class="btn btn-primary translate" ng-click="saveUser(user)">{{ "Añadir equipo" | translate }}</button>
+      <button type="submit" class="btn btn-primary" ng-click="saveUser(user)">{{ "Añadir equipo" | translate }}</button>
       <div class="clearfix"></div>
     </div>
     <div class="tab-pane" id="rating">
       <div class="row">
-        <h2 class="translate col-md-4">{{ "Valoración del suministrador" || translate }}</h2>
+        <h2 class="col-md-4">{{ "Valoración del suministrador" | translate }}</h2>
         <div class="rating-info">
           <fieldset>
               <div class="form-group col-md-3 ">
@@ -266,13 +266,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="unsubscribe-label"><span class="glyphicon glyphicon-question-sign"></span> {{ "¿Está seguro?" || translate }} </h4>
+        <h4 class="modal-title" id="unsubscribe-label"><span class="glyphicon glyphicon-question-sign"></span> {{ "¿Está seguro?" | translate }} </h4>
       </div>
       <div class="alert alert-danger" ng-show="unsuscribe_error">{{ unsuscribe_error }}</div>
       <div class="alert alert-success" ng-show="unsuscribe_ok">{{ "Su baja se ha realizado correctamente. Gracias." | translate }}</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "No" || translate }} </button>
-        <button type="button" class="btn btn-primary" ng-click="unsuscribeUser()"> {{ "Si, quiero que se eliminen todos mis datos" || translate }} </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "No" | translate }} </button>
+        <button type="button" class="btn btn-primary" ng-click="unsuscribeUser()"> {{ "Si, quiero que se eliminen todos mis datos" | translate }} </button>
       </div>
     </div>
   </div>
@@ -283,7 +283,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="detail-label"><span class="glyphicon glyphicon-time"></span> {{ "Detalle sorteo" || translate }} </h4>
+        <h4 class="modal-title" id="detail-label"><span class="glyphicon glyphicon-time"></span> {{ "Detalle sorteo" | translate }} </h4>
       </div>
       <div class="modal-body">
         <fieldset>
@@ -315,7 +315,7 @@
           
 		  </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cerrar" || translate }} </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cerrar" | translate }} </button>
       </div>
     </div>
   </div>
@@ -326,7 +326,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="retire-label"><span class="glyphicon glyphicon-transfer"></span> {{ "Retirar fondos" || translate }} </h4>
+        <h4 class="modal-title" id="retire-label"><span class="glyphicon glyphicon-transfer"></span> {{ "Retirar fondos" | translate }} </h4>
       </div>
         <div class="modal-body">
           <form class="form-horizontal" role="form">
@@ -347,8 +347,8 @@
           </form>
 		  </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" || translate }} </button>
-        <button type="button" class="btn btn-primary" id="btn_login"> {{ "Continuar" || translate }} </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" | translate }} </button>
+        <button type="button" class="btn btn-primary" id="btn_login"> {{ "Continuar" | translate }} </button>
       </div>
     </div>
   </div>
@@ -359,21 +359,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="response-label"><span class="glyphicon glyphicon-comment"></span> {{ "Responder" || translate }} </h4>
+        <h4 class="modal-title" id="response-label"><span class="glyphicon glyphicon-comment"></span> {{ "Responder" | translate }} </h4>
       </div>
         <div class="modal-body">
           <form class="form-horizontal" role="form">
             <fieldset>
               <div>
-                <label for="message">{{ "Respuesta" || translate }}</label>
-                <textarea placeholder='{{ "Respuesta" || translate }}' id="response" class="form-control" rows="5"></textarea>
+                <label for="message">{{ "Respuesta" | translate }}</label>
+                <textarea placeholder='{{ "Respuesta" | translate }}' id="response" class="form-control" rows="5"></textarea>
               </div>
             </fieldset>
           </form>
 		  </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" || translate }} </button>
-        <button type="button" class="btn btn-primary" > {{ "Responder" || translate }} </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> {{ "Cancelar" | translate }} </button>
+        <button type="button" class="btn btn-primary" > {{ "Responder" | translate }} </button>
       </div>
     </div>
   </div>

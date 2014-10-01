@@ -24,6 +24,10 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 }
 */
 
+#comunicate{
+  display:none;
+}
+
 $hover-primary: #345478;
 a{
   cursor:pointer;
@@ -401,6 +405,28 @@ table tr:last-child td{
               .rating-info{
                 margin-top:20px;
                 line-height:26px;
+              }
+            }
+            &#admin-users{
+              .form-inline{
+                .form-group{
+                  width:20%;
+                }
+                .form-control{
+                  width:100%;
+                }
+              }
+              
+            }
+            &#admin-products{
+              .top-buttons{
+                margin-bottom:20px;
+              }
+              table td{
+                line-height:50px;
+                img{
+                  height:50px;
+                }
               }
             }
             
