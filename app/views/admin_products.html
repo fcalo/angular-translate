@@ -1,0 +1,45 @@
+<h1> {{ "Productos" | translate }}</h1>
+
+
+<div id="admin-products" class="work-area">
+  <div class="pull-right top-buttons"><a type="submit" class="btn btn-primary" href="#/admin/product/">{{ "Nuevo equipo" | translate }}</a></div>
+  <div class="clearfix"></div>
+	<form class="form-inline" role="form">
+    
+    <div class="form-group">
+      <label class="sr-only" for="filter_name"> {{ "Equipo" | translate }}</label>
+      <input type="text" class="form-control" id="filter_product" placeholder="{{ 'Equipo' | translate }}">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="filter_title">{{ "Título" | translate }}</label>
+      <input type="text" class="form-control" id="filter_titulo" placeholder="{{ 'Título' | translate }}">
+    </div>
+    <button type="button" class="btn btn-default">{{ "Todos" | translate }}</button>
+    <button type="submit" class="btn btn-default">{{ "Filtrar" | translate }}</button>
+  </form>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>{{ "Foto" | translate }}</th>
+        <th>{{ "Título" | translate }}</th>
+        <th>{{ "Equipo" | translate }}</th>
+        <th>{{ "Ver" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody id="draws-helds">
+      <tr ng-repeat="i in [1, 2, 3, 4, 5]">
+        <td><img src="images/equipment/test.png" ></td>
+        <td>título</td>
+        <td>Iphone</td>
+        <td><a href="#/admin/product/78"><span class="glyphicon glyphicon-search"></span></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pager pull-right">
+    <li><a href="#">{{ "Anterior" | translate }}</a></li>
+    <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+  </ul>
+  <div class="clearfix"></div>
+  
+  
+</div>

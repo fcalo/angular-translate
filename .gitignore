@@ -1,10 +1,13 @@
 node_modules
 dist
 *.fcs
+*.zip
 .tmp
 *.swp
+*.pyc
 .sass-cache
 bower_components
 bower.json
 deploy-dev.sh
 docs/
+tmp/

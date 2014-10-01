@@ -1,0 +1,51 @@
+<h1 > {{ "Usuarios" | translate }}</h1>
+
+
+<div id="admin-users" class="work-area">
+	<form class="form-inline" role="form">
+    <div class="form-group">
+      <label class="sr-only" for="filter_user">{{ "Usuario" | translate }}</label>
+      <input type="text" class="form-control" id="filter_user" placeholder="{{ 'Usuario' | translate }}">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="filter_name">{{ "Name" | translate }}</label>
+      <input type="text" class="form-control" id="filter_name" placeholder="{{ 'Nombre' | translate }}">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="filter_name">{{ "Apellidos" | translate }}</label>
+      <input type="text" class="form-control" id="filter_surname" placeholder="{{ 'Apellidos' | translate }}">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="filter_email">{{ "Email" | translate }}</label>
+      <input type="text" class="form-control" id="filter_email" placeholder="{{ 'Email' | translate }}">
+    </div>
+    
+    <button type="button" class="btn btn-default">{{ "Todos" | translate }}</button>
+    <button type="submit" class="btn btn-default">{{ "Filtrar" | translate }}</button>
+  </form>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>{{ "Usuario" | translate }}</th>
+        <th>{{ "Nombre" | translate }}</th>
+        <th>{{ "Apellidos" | translate }}</th>
+        <th>{{ "Email" | translate }}</th>
+        <th>{{ "Ver" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody id="draws-helds">
+      <tr ng-repeat="i in [1, 2, 3, 4, 5]">
+        <td>pepe68</td>
+        <td>Pepe</td>
+        <td>Pérez</td>
+        <td>pepe@dominio.es</td>
+        <td><a href="#/admin/user/23"><span class="glyphicon glyphicon-search"></span></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pager pull-right">
+    <li><a href="#">{{ "Anterior" | translate }}</a></li>
+    <li><a href="#">{{ "Siguiente" | translate }}</a></li>
+  </ul>
+  <div class="clearfix"></div>
+</div>
